@@ -9,14 +9,14 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
-import os, sys
-
-try:
-    host_name = os.environ['papricacare_host']
-except KeyError:
-    host_name = None
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+try:
+    if __SETTING__ == True:
+        exit()
+except NameError:
+    __SETTING__ = True
+
+import os, sys
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -29,11 +29,16 @@ SECRET_KEY = 'o1g#kbfwe=q(+tr&z4&_!(vn*fk-u7)917jyqbozc15%wb$3be'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+try:
+    host_name = os.environ['papricacare_host']
+except KeyError:
+    host_name = None
+
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 if host_name != None and host_name not in ALLOWED_HOSTS: # when remotely running
     ALLOWED_HOSTS.append(host_name)
     is_hosted = True
-    print(f'Papricacare is running in a hosted way at "{host_naem}".')
+    print(f'Papricacare is running in a hosted way at "{host_name}".')
 else:
     print(f'Papricacare is running locally.')
     is_hosted = False
@@ -83,11 +88,13 @@ WSGI_APPLICATION = 'papricacare.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+
 try:
     db_endpoint = os.environ['papricacare_db_host']
 except KeyError:
     db_endpoint = '127.0.0.1' 
-
+print(f'Postgre is running at "{db_endpoint}".')
+    
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql',
@@ -143,3 +150,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+__SETTING__ = True
