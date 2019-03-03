@@ -39,7 +39,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 if host_name != None and host_name not in ALLOWED_HOSTS: # when remotely running
     ALLOWED_HOSTS.append(host_name)
     is_hosted = True
-    run_message = f'<Papricacare allowed at "{host_name}, ".'
+    run_message = f'<Papricacare allowed at "{host_name}",'
 else: 
     run_message = f'<Papricacare run locally, '
     is_hosted = False
