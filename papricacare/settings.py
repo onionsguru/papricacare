@@ -29,6 +29,7 @@ SECRET_KEY = 'o1g#kbfwe=q(+tr&z4&_!(vn*fk-u7)917jyqbozc15%wb$3be'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+run_message = None
 try:
     host_name = os.environ['papricacare_host']
 except KeyError:
@@ -38,9 +39,9 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 if host_name != None and host_name not in ALLOWED_HOSTS: # when remotely running
     ALLOWED_HOSTS.append(host_name)
     is_hosted = True
-    print(f'Papricacare is running in a hosted way at "{host_name}".')
-else:
-    print(f'Papricacare is running locally.')
+    run_message = f'<Papricacare allowed at "{host_name}, ".'
+else: 
+    run_message = f'<Papricacare run locally, '
     is_hosted = False
      
 # Application definition
@@ -93,7 +94,7 @@ try:
     db_endpoint = os.environ['papricacare_db_host']
 except KeyError:
     db_endpoint = '127.0.0.1' 
-print(f'Postgre is running at "{db_endpoint}".')
+run_message = run_message + f'Postgre run at "{db_endpoint}">'
     
 DATABASES = {
     'default': {
@@ -150,4 +151,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-__SETTING__ = True
+print(run_message)
