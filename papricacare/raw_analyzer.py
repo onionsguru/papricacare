@@ -59,7 +59,11 @@ def read_tsv(tsv_file, table_name, postgre_conn):
         
     postgre_conn.close()
 
-conn = psycopg2.connect(database="papricacaredb", user = "onions", password = "2018onions", host = "127.0.0.1", port = "5432")
+#hostname = '127.0.0.1'
+hostname = 'papricacaredb.ce6uph5ztrl3.ap-northeast-2.rds.amazonaws.com'
+
+conn = psycopg2.connect(database="papricacaredb", user = "onions", 
+        password = "onions2018", host = hostname, port = "5432")
 
 if conn:
     read_tsv('DESC_ID.tsv', 'drug_ingredesc', conn)

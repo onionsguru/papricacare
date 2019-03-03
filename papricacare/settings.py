@@ -25,7 +25,7 @@ SECRET_KEY = 'o1g#kbfwe=q(+tr&z4&_!(vn*fk-u7)917jyqbozc15%wb$3be'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['papricacare.onionsapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -80,8 +80,8 @@ DATABASES = {
     'NAME': 'papricacaredb',
     'USER': 'onions',
     'PASSWORD': 'onions2018',
-    #'HOST': 'papricacaredb.ce6uph5ztrl3.ap-northeast-2.rds.amazonaws.com',
-    'HOST': '127.0.0.1',
+    'HOST': 'papricacaredb.ce6uph5ztrl3.ap-northeast-2.rds.amazonaws.com',
+    #'HOST': '127.0.0.1',
     'PORT': '5432',
     }
 }
