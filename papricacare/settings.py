@@ -9,8 +9,12 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
+import os, sys
 
-import os
+try:
+    host_name = os.environ['papricacare_host']
+except KeyError:
+    host_name = None
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,9 +29,15 @@ SECRET_KEY = 'o1g#kbfwe=q(+tr&z4&_!(vn*fk-u7)917jyqbozc15%wb$3be'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['papricacare.onionsapp.com', '127.0.0.1', 'localhost']
-
-
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+if host_name != None and host_name not in ALLOWED_HOSTS: # when remotely running
+    ALLOWED_HOSTS.append(host_name)
+    is_hosted = True
+    print(f'Papricacare is running in a hosted way at "{host_naem}".')
+else:
+    print(f'Papricacare is running locally.')
+    is_hosted = False
+     
 # Application definition
 
 INSTALLED_APPS = [
@@ -73,6 +83,10 @@ WSGI_APPLICATION = 'papricacare.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+try:
+    db_endpoint = os.environ['papricacare_db_host']
+except KeyError:
+    db_endpoint = '127.0.0.1' 
 
 DATABASES = {
     'default': {
@@ -80,8 +94,8 @@ DATABASES = {
     'NAME': 'papricacaredb',
     'USER': 'onions',
     'PASSWORD': 'onions2018',
-    'HOST': 'papricacaredb.ce6uph5ztrl3.ap-northeast-2.rds.amazonaws.com',
-    #'HOST': '127.0.0.1',
+    #'HOST': 'papricacaredb.ce6uph5ztrl3.ap-northeast-2.rds.amazonaws.com',
+    'HOST': db_endpoint,
     'PORT': '5432',
     }
 }

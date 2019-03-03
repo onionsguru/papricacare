@@ -1,6 +1,14 @@
 import fileinput
 import psycopg2
 import ast
+import os
+
+try:
+    db_endpoint = os.environ['papricacare_db_host']
+    print(f'raw_analyzer is running at "{db_endpoint}".')
+except KeyError:
+    print('raw_analyzer is running locally.')
+    db_endpoint = '127.0.0.1'
 
 def filter_str(str, f_list ):
     temp_str = ''
@@ -59,11 +67,8 @@ def read_tsv(tsv_file, table_name, postgre_conn):
         
     postgre_conn.close()
 
-#hostname = '127.0.0.1'
-hostname = 'papricacaredb.ce6uph5ztrl3.ap-northeast-2.rds.amazonaws.com'
-
 conn = psycopg2.connect(database="papricacaredb", user = "onions", 
-        password = "onions2018", host = hostname, port = "5432")
+        password = "onions2018", host = db_endpoint, port = "5432")
 
 if conn:
     read_tsv('DESC_ID.tsv', 'drug_ingredesc', conn)
