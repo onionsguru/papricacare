@@ -1,0 +1,18 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <h1> Hi {{ user.username }}!</h1>
+  <a href="{% url 'logout' %}">logout</a>
+{% else %}
+
+  <h1>Onions Apps</h1>
+  <a href="{% url 'login' %}">login</a>,
+  <a href="{% url 'accounts:signup' %}"> signup </a>
+{% endif %}
+  or,<br>
+  <a href="{% url 'chat:index' %}"> go without authentication</a>
+{% endblock %}

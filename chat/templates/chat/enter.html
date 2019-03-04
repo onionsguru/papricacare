@@ -1,0 +1,182 @@
+{% extends "chat/layout.html" %}
+
+{% block header_msg %}
+<h2 style='margin:0px; padding:2px;'> Talking on "<b>{{chat_room.title_text}}</b>"</h2>	
+{% endblock %}
+
+{% block article %}
+	{% if error_msg %}
+		<p> Error! : "{{error_msg}}" </p>
+		<p> Please, try it again with another theme title. </p>
+	{% else %}
+		<style>
+			textarea {
+				background-color: #FFFFFF; 
+			}
+
+			div.chat {
+				float:left;
+				overflow-y:auto;
+				width:70%;
+				height:300px;
+				margin: 0px;
+				padding: 3px;
+				overflow-y:auto;
+				background-color: lightyellow;
+				font-size: 14px;
+			}
+			div.chater {
+				float:left;
+				overflow-y:auto;
+				width:30%;
+				height:300px;
+				margin: 0px;
+				padding: 3px;
+				overflow-y:auto;
+				background-color: lightblue;
+				font-size: 14px;
+			}
+			
+			img.thumb {
+			    height: 100px;
+			   	border-style: solid;
+				border-color: coral;
+				border-width: 1px;
+			}
+		</style>
+		
+		<div style='display:inline-block;width:100%'>
+			<div id='talk_area' class='chat'> </div>
+			<div class='chater' id='chatters'>...</div>	
+		</div>
+		
+		<form id='myform' action="{% url 'chat:talk' pk=chat_room.id chatter_id=user.id %}" 
+		method="post">  
+			{% csrf_token %}
+			<div style='width:100%; display:inline-block;'>
+				<div style='float:left; width:40%;height:100%;padding:5px;margin:1px'>
+				
+				<!--  {{form.input_text}}<br> -->
+							
+				<input type='text' id='input_text' autofocus='autofocus' autocomplete='off' style='width:100%'/>	
+				<button id='mysend' type='button'>Send</button>
+				<button id='myleave' type='button'> leave </button>
+				</div>
+				
+				<div align='left'><b><i>&nbsp;&nbsp;Pick an image to send</i></b></div>
+				<div style='float:right; width:58%;height:100%;border-style:dotted; padding:5px;margin:1px'>
+				filters:
+				<input type='checkbox' name='msgfilter' value='privacies'>Privacies </input>
+				<input id='file_loader' type='file' accept="image/x-png,image/gif,image/jpeg"/>
+				<div id='img-div'><img id="myImg" src="#" class='thumb'></div>	 
+				</div>	
+			</div>
+		</form>
+		
+		<script>
+	$(document).ready(function() {
+	    var chatSocket = new WebSocket(
+		        'ws://' + window.location.host +
+		        '/ws/chat/' + "{{chat_room.id}}" + '/' + "{{user.id}}" + '/');
+	
+		chatSocket.onmessage = function(e) {
+			$('#ajaxBusy').hide(); 
+			
+		    var data = JSON.parse(e.data);
+		    var message = data['message'];
+		    var chatters = data['chatters']; 
+		    $('#chatters').html(chatters);
+		   	var talkarea = $('#talk_area');
+		   	
+		   	var line = $('<div></div>');
+		   	line.html(message);
+		   	talkarea.append(line);
+      		
+		   	var img_src = data['img_src'];
+			if( img_src && img_src != '#') {
+			   	var img_added = $('<img />');
+		    	img_added.attr('src', img_src);
+		    	img_added.attr('class', "thumb");
+ 		    	img_added.click(function() {
+		    	    $(this).toggleClass("thumb");    
+		    	});
+ 		    	talkarea.append(img_added);
+			}
+			sh = talkarea.prop('scrollHeight');
+			h = talkarea.height();
+			st = talkarea.scrollTop();
+			if( sh > h + st )
+		    	talkarea.scrollTop(sh-h);
+		};
+		
+		chatSocket.onclose = function(e) {
+		    console.error('Chat socket closed unexpectedly');
+		    window.location.href="{% url 'home' %}";
+		    alert('You have left the chatroom for some reason!');
+		};
+		
+		function f_send(message) {
+			$('#ajaxBusy').show(); 	
+			var img_src = $('#myImg').attr('src');
+			chatSocket.send(JSON.stringify({
+		        'message': message,
+		        'user': "{{user.id}}",
+		        'img_src': img_src,
+		    }));
+			var tar = $('#talk_area');
+		  
+		    if( $('#myImg').attr('src') != '#' ) {
+			    $('#myImg').attr('src', '#');
+			    $("#file_loader").val('');
+			}
+		} 
+		
+		$('#myform').submit( function () {return false;} );
+		$('#input_text').keydown( function (e) {
+			if( e.which == 13 ) {
+				f_send($(this).val());
+				$(this).val('');
+				$(this).focus();
+				e.preventDefault();
+			}
+		});
+		
+		$('#mysend').click(function (e) {
+			f_send($('#input_text').val());
+			$('#input_text').val('');
+			$('#myImg').attr('src', '#');
+			$('#input_text').focus();
+			e.preventDefault();
+		});
+		
+		$('#myleave').click(function (e) {
+			e.preventDefault();
+			window.location.href="{% url 'chat:index' %}";
+		});
+
+		function imageIsLoaded(e) {
+	        $('#myImg').attr('src', e.target.result);
+	    };
+	    
+        $("#file_loader").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = imageIsLoaded;
+                reader.readAsDataURL(this.files[0]);
+              	$('#myImg').attr('class', 'thumb');
+              	$('#myImg').click(function() {
+		    	    $(this).toggleClass("thumb");    
+		    	});
+       
+            }
+        });
+        
+        // for waiting animation
+        $('body').append('<div id="ajaxBusy" class="centered-div"><p><img src="/static/chat/ajax-loader.gif"></p></div>');
+
+	});
+		</script>
+		
+	{% endif %}
+{% endblock %}
+

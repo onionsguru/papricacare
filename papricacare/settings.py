@@ -54,6 +54,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'drug.apps.DrugConfig',
+    'chat.apps.ChatConfig',
+    'channels',
+    'rest_framework',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -71,7 +75,7 @@ ROOT_URLCONF = 'papricacare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -149,6 +153,18 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+LOGIN_REDIRECT_URL = '/chat/'
+LOGOUT_REDIRECT_URL = '/chat/'
 
+# for channels
+ASGI_APPLICATION = "papricacare.routing.application"    
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+       "hosts":[('127.0.0.1',6379)],
+        },
+    }
+}
 STATIC_URL = '/static/'
 print(run_message)

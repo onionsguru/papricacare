@@ -1,0 +1,47 @@
+{% extends "chat/layout.html" %}
+
+{% block aside %}
+{% endblock %}
+{% block article %}
+<form action="{% url 'chat:join' %}" method="post">
+{% csrf_token %}
+
+{% if chat_list %}
+	<div>
+	Nickname:
+	<input type='text' name='nickname' value='' required autocomplete='off'/>
+	<input type='submit' value='join' />
+	</div>
+{% endif %}
+
+{% if msg %}
+<p> {{msg}} </p>
+{% endif %}
+
+<p>Currently, {{ chat_list | length }} chatting room(s) are open:</p>
+
+{% if chat_list %}
+<table>
+	<tr>
+		<th>Theme</th>
+		<th>Owner</th>
+		<th>Population </th>
+		<th>Time</th>
+{% for ch in chat_list %}
+	<tr> 
+	<div style="background-color:lightyellow">
+	<td>
+	<input type='radio' name='choice' id='choice{{forloop.counter}}' value='{{ch.id}}' required/>
+	<label for='choice{{forloop.counter}}'></label> {{ch.title}}
+	</td>
+	<td> {{ch.owner}} </td>
+	<td> {{ch.num_chatters }} </td> 
+	<td> {{ch.time}} </td>
+	</div>
+	</div>
+	</tr>		
+{% endfor %}
+</table>
+{% endif %}
+</form>
+{% endblock %}

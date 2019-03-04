@@ -1,0 +1,20 @@
+{% extends "chat/layout.html" %}
+
+{% block aside %}
+{% endblock %}
+{% block article %}
+	<p> Fill the fields below, then press the "open" button </p>	
+	<form action="{% url 'chat:open' %}" method="post">
+		{% csrf_token %}
+		<hr>
+		Theme:<br> 
+		<input type="text" name="theme" value="" required autocomplete='off' /><br>
+		Nickname:<br> 
+		<input type="text" name="nickname" value="" required autocomplete='off'/>
+		<hr>
+<!-- 		
+		<button id='open' type='button' onclick="$('form').submit();">oepn and talk</button>
+ -->
+		<input type='submit' value='open' autocomplete:'off'/>
+	</form>
+{% endblock %}
