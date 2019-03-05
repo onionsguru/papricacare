@@ -66,7 +66,7 @@ def erase(src, **kwargs):
         header, encoded = data_uri.split(",", 1)
         data = b64decode(encoded)
         
-        src = 'temp.temp'
+        src = '.temp.temp'
         fp = io.open(src, 'wb')
         fp.write(data)
         fp.close()
@@ -107,7 +107,7 @@ def erase(src, **kwargs):
     
     for p in privacies:
         draw.rectangle(xy=p,fill='red')
-    output = 'safe.png'
+    output = '.safe.png'
     im.save(output)
     
     if type == 'dataurl':
