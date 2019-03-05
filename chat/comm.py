@@ -112,7 +112,7 @@ class ChatChannel(AsyncWebsocketConsumer):
                 if u.is_owner:
                     chatter_list.append('<b>' + u.nickname_text+ ' (' + u.auth_name + ')</b>&nbsp;&#9819;<br>')
                 else:
-                    chatter_list.append(u.nickname_text+' (' + u.auth_name + ')')
+                    chatter_list.append(u.nickname_text+' (' + u.auth_name + ')<br>')
             else:
                 if u.is_owner:
                     chatter_list.append('<b>' + u.nickname_text + '</b>&nbsp;&#9819;<br>')
