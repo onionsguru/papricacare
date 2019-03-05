@@ -32,7 +32,7 @@ class ChatChannel(AsyncWebsocketConsumer):
             {
                 'type': 'chat_message',
                 'message': message,
-                'attr': {'img_src':'#','is_privacy':False}
+                'img_src': '#'
             }
         )
 
@@ -59,7 +59,9 @@ class ChatChannel(AsyncWebsocketConsumer):
             {
                 'type': 'chat_message',
                 'message': message,
-                'attr': {'img_src':'#','is_privacy':False}
+                'attr': {'img_src':'#','is_privacy':False,
+                         'is_num':False, 
+                         'is_char':False }
             }
         )
         
@@ -84,16 +86,20 @@ class ChatChannel(AsyncWebsocketConsumer):
             
         # print(f'talk = "{self.talk_backlog[self.room_group_id]}"')
             
-        if attr['img_src'] != '#' and attr['is_privacy'] == True:
-            ocr.erase_privacies(attr['img_src'], 'test1-safe.png', True)  
-           
+        if attr['img_src'] != '#' and \
+            (attr['is_privacy'] or attr['is_num'] or attr['is_char']):
+            attr['img_src'] = ocr.erase(attr['img_src'], type='dataurl', 
+                                        is_privacy=attr['is_privacy'],
+                                        is_num=attr['is_num'],
+                                        is_char=attr['is_char'])
+            
         # Send message to room group
         await self.channel_layer.group_send(
             self.room_group_id,
             {
                 'type': 'chat_message',
                 'message': message,
-                'attr': attr
+                'img_src': attr['img_src']
             }
         )
 
@@ -117,7 +123,7 @@ class ChatChannel(AsyncWebsocketConsumer):
     # Receive message from room group
     async def chat_message(self, event):
         message = event['message']
-        img_src = event['attr']['img_src']
+        img_src = event['img_src']
         chatter_list = self.get_chatters(self.room_id)
 
         # Send message to WebSocket

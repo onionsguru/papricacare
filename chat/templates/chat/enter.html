@@ -39,10 +39,12 @@
 			
 			img.thumb {
 			    height: 100px;
+			    width: auto;
 			   	border-style: solid;
 				border-color: coral;
 				border-width: 1px;
 			}
+			
 		</style>
 		
 		<div style='display:inline-block;width:100%'>
@@ -63,10 +65,13 @@
 				<button id='myleave' type='button'> leave </button>
 				</div>
 				
-				<div align='left'><b><i>&nbsp;&nbsp;Pick an image to send</i></b></div>
+				<div align='left'><b><i>&nbsp; &nbsp; Pick an image to send</i></b></div>
 				<div style='float:right; width:58%;height:100%;border-style:dotted; padding:5px;margin:1px'>
-				filters:
-				<input id='on_privacy' type='checkbox' name='msgfilter' value='privacies'>Privacies </input>
+				<b>FILTERS:</b>
+				<input id='on_anynum' type='checkbox' name='msgfilter' value='nums'>num </input>
+				<input id='on_anychar' type='checkbox' name='msgfilter' value='chars'>char </input>
+				<input id='on_privacy' type='checkbox' name='msgfilter' value='privacies'>privacies </input>
+								
 				<br>
 				<input id='file_loader' type='file' accept="image/x-png,image/gif,image/jpeg"/>
 				<div id='img-div'><img id="myImg" src="#" class='thumb'></div>	 
@@ -98,6 +103,7 @@
 			   	var img_added = $('<img />');
 		    	img_added.attr('src', img_src);
 		    	img_added.attr('class', "thumb");
+		    	  
  		    	img_added.click(function() {
 		    	    $(this).toggleClass("thumb");    
 		    	});
@@ -108,6 +114,9 @@
 			st = talkarea.scrollTop();
 			if( sh > h + st )
 		    	talkarea.scrollTop(sh-h);
+			$('#on_privacy').prop('checked', false)
+			$('#on_anynum').prop('checked', false)
+			$('#on_anychar').prop('checked', false)
 		};
 		
 		chatSocket.onclose = function(e) {
@@ -120,17 +129,21 @@
 			$('#ajaxBusy').show(); 	
 			
 			var is_privacy = $('#on_privacy').prop('checked')
+			var is_num = $('#on_anynum').prop('checked')
+			var is_char = $('#on_anychar').prop('checked')
 			var img_src = $('#myImg').attr('src');
 			
 			chatSocket.send(JSON.stringify({
 		        'message': message,
 		        'user': "{{user.id}}",
-		        'attr': {'img_src':img_src, 'is_privacy':is_privacy}
+		        'attr': {'img_src':img_src, 'is_privacy':is_privacy, 'is_num':is_num, 
+		        	'is_char':is_char}
 		    }));
 			var tar = $('#talk_area');
 		  
 		    if( $('#myImg').attr('src') != '#' ) {
 			    $('#myImg').attr('src', '#');
+			    $('#myImg').addClass('thumb');
 			    $("#file_loader").val('');
 			}
 		} 
@@ -157,6 +170,10 @@
 			e.preventDefault();
 			window.location.href="{% url 'chat:index' %}";
 		});
+		
+		$('#myImg').click(function() {
+	    	    $(this).toggleClass("thumb");
+	    });
 
 		function imageIsLoaded(e) {
 	        $('#myImg').attr('src', e.target.result);
@@ -167,11 +184,7 @@
                 var reader = new FileReader();
                 reader.onload = imageIsLoaded;
                 reader.readAsDataURL(this.files[0]);
-              	$('#myImg').attr('class', 'thumb');
-              	$('#myImg').click(function() {
-		    	    $(this).toggleClass("thumb");    
-		    	});
-       
+
             }
         });
         
