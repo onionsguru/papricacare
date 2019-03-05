@@ -30,7 +30,7 @@ class IngreFormAdmin(admin.ModelAdmin):
     
 class IngreDescAdmin(admin.ModelAdmin):
     # list_display = ('desc_id', 'ingredient_name', 'translate_status', 'one_liner', 'one_liner_kr', 'bottom_line_en', 'bottom_line_kr', 'upside_en', 'upside_kr', 'downside_en', 'downside_kr', 'mechnism_en', 'mechnism_kr', 'pharmacist_tips', 'pharmacist_tips_kr')
-    list_display = ('desc_id', 'ingredient_name', 'translate_status', 'one_liner', 'one_liner_kr', 'bottom_line_kr', 'upside_kr', 'downside_kr', 'mechnism_kr', 'pharmacist_tips_kr')
+    list_display = ('desc_id', 'ingredient_name', 'translate_status', 'one_liner_kr', 'bottom_line_kr', 'upside_kr', 'downside_kr', 'mechnism_kr')
     list_filter = ['translate_status']
     search_fields = ['ingredient_name', 'translate_status', 'one_liner', 'one_liner_kr', 'bottom_line_en', 'bottom_line_kr', 'upside_en', 'upside_kr', 'downside_en', 'downside_kr', 'mechnism_en', 'mechnism_kr', 'pharmacist_tips', 'pharmacist_tips_kr']
 
