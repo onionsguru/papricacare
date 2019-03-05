@@ -16,7 +16,7 @@ def count_chars(text):
 def is_serial_num(text):
     cnt_num, cnt_char, cnt_special = count_chars(text)
     
-    print(text, cnt_num,cnt_char,cnt_special)
+    # print(text, cnt_num,cnt_char,cnt_special)
 
     if cnt_num >= 13 and '-' in text: # 주민번호 패턴
         return True
