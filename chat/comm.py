@@ -59,9 +59,7 @@ class ChatChannel(AsyncWebsocketConsumer):
             {
                 'type': 'chat_message',
                 'message': message,
-                'attr': {'img_src':'#','is_privacy':False,
-                         'is_num':False, 
-                         'is_char':False }
+                'img_src': '#'
             }
         )
         
