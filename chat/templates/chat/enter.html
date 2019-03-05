@@ -66,7 +66,8 @@
 				<div align='left'><b><i>&nbsp;&nbsp;Pick an image to send</i></b></div>
 				<div style='float:right; width:58%;height:100%;border-style:dotted; padding:5px;margin:1px'>
 				filters:
-				<input type='checkbox' name='msgfilter' value='privacies'>Privacies </input>
+				<input id='on_privacy' type='checkbox' name='msgfilter' value='privacies'>Privacies </input>
+				<br>
 				<input id='file_loader' type='file' accept="image/x-png,image/gif,image/jpeg"/>
 				<div id='img-div'><img id="myImg" src="#" class='thumb'></div>	 
 				</div>	
@@ -117,11 +118,14 @@
 		
 		function f_send(message) {
 			$('#ajaxBusy').show(); 	
+			
+			var is_privacy = $('#on_privacy').prop('checked')
 			var img_src = $('#myImg').attr('src');
+			
 			chatSocket.send(JSON.stringify({
 		        'message': message,
 		        'user': "{{user.id}}",
-		        'img_src': img_src,
+		        'attr': {'img_src':img_src, 'is_privacy':is_privacy}
 		    }));
 			var tar = $('#talk_area');
 		  

@@ -6,12 +6,12 @@ def detect_text(path):
     """Detects text in the file."""
     from google.cloud import vision
     client = vision.ImageAnnotatorClient()
-
+    '''
     with io.open(path, 'rb') as image_file:
         content = image_file.read()
-
-    image = vision.types.Image(content=content)
-
+    '''
+    content = path.split('/') # 0: 'data:image' 1: 'type';basexx 
+    image = vision.types.Image(content=bytes(content[2],'utf-8'))
     response = client.text_detection(image=image)
     texts = response.text_annotations
     return texts

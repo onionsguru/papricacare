@@ -4,6 +4,8 @@ import json
 from chat import models
 import datetime
 import pytz
+from papricacare.ocr import ocr
+import io
 
 class ChatChannel(AsyncWebsocketConsumer):
     talk_backlog = dict(str())
@@ -30,7 +32,7 @@ class ChatChannel(AsyncWebsocketConsumer):
             {
                 'type': 'chat_message',
                 'message': message,
-                'img_src': '#'
+                'attr': {'img_src':'#','is_privacy':False}
             }
         )
 
@@ -51,13 +53,13 @@ class ChatChannel(AsyncWebsocketConsumer):
             u = ch.user_set.first();
             u.is_owner = True 
             u.save()
-        
+       
         await self.channel_layer.group_send(
             self.room_group_id,
             {
                 'type': 'chat_message',
                 'message': message,
-                'img_src': '#'
+                'attr': {'img_src':'#','is_privacy':False}
             }
         )
         
@@ -71,7 +73,7 @@ class ChatChannel(AsyncWebsocketConsumer):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
         user_id = text_data_json['user']
-        img_src = text_data_json['img_src']
+        attr = text_data_json['attr']
         user = models.User.objects.all().get(pk=user_id)
         message = f'<b>{user.nickname_text}</b> : {message}'
 
@@ -81,14 +83,17 @@ class ChatChannel(AsyncWebsocketConsumer):
             self.talk_backlog[self.room_group_id] = ''
             
         # print(f'talk = "{self.talk_backlog[self.room_group_id]}"')
-        
+            
+        if attr['img_src'] != '#' and attr['is_privacy'] == True:
+            ocr.erase_privacies(attr['img_src'], 'test1-safe.png', True)  
+           
         # Send message to room group
         await self.channel_layer.group_send(
             self.room_group_id,
             {
                 'type': 'chat_message',
                 'message': message,
-                'img_src': img_src
+                'attr': attr
             }
         )
 
@@ -107,13 +112,12 @@ class ChatChannel(AsyncWebsocketConsumer):
                     chatter_list.append('<b>' + u.nickname_text + '</b>&nbsp;&#9819;<br>')
                 else:
                     chatter_list.append(u.nickname_text+'<br>')
-             
         return chatter_list
       
     # Receive message from room group
     async def chat_message(self, event):
         message = event['message']
-        img_src = event['img_src']
+        img_src = event['attr']['img_src']
         chatter_list = self.get_chatters(self.room_id)
 
         # Send message to WebSocket
