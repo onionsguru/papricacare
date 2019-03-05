@@ -29,13 +29,15 @@ def is_serial_num(text):
         return False
     
 def is_anynum(text):
-    if count_num(text) > 0: 
+    cnt_num, cnt_char, cnt_special = count_chars(text)
+    if cnt_num > 0: 
         return True
     else:
         return False
     
 def is_anychar(text):
-    if count_char(text) > 0: 
+    cnt_num, cnt_char, cnt_special = count_chars(text)
+    if cnt_char > 0: 
         return True
     else:
         return False 
