@@ -27,8 +27,6 @@ def is_serial_num(text):
         return True
     elif cnt_special == 0 and cnt_char == 0 and cnt_num == 5: # 면허번호
         return True
-    elif cnt_special == 0 and cnt_char >=2 and cnt_char <=4 and cnt_num == 0: # 이름
-        return True
     else:
         return False
     
