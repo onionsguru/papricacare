@@ -20,10 +20,16 @@ def is_serial_num(text):
 
     if cnt_num >= 13 and '-' in text: # 주민번호 패턴
         return True
+    elif cnt_num >= 7 and '*' in text: # 가려진 주민번호 패턴
+        return True
     elif cnt_special == 0 and \
     (cnt_num >= 6 and cnt_num <= 7 and cnt_char== 1): # 자동차번호 패턴
         return True
     elif cnt_special == 0 and cnt_char == 0 and cnt_num == 8: # 요양기관기호
+        return True
+    elif cnt_special == 0 and cnt_char == 0 and cnt_num == 5: # 면허번호
+        return True
+    elif cnt_special == 0 and cnt_char >=2 and cnt_char <=4 and cnt_num == 0: # 이름 
         return True
     else:
         return False
