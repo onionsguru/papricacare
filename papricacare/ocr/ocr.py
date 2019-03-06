@@ -16,11 +16,11 @@ def count_chars(text):
 def is_serial_num(text):
     cnt_num, cnt_char, cnt_special = count_chars(text)
     
-    # print(text, cnt_num,cnt_char,cnt_special)
+    print(text, cnt_num,cnt_char,cnt_special)
 
     if cnt_num >= 13 and '-' in text: # 주민번호 패턴
         return True
-    elif cnt_num >= 7 and '*' in text: # 가려진 주민번호 패턴
+    elif cnt_num >= 7 and '-' in text and '*' in text: # 가려진 주민번호 패턴
         return True
     elif cnt_special == 0 and \
     (cnt_num >= 6 and cnt_num <= 7 and cnt_char== 1): # 자동차번호 패턴
@@ -29,7 +29,7 @@ def is_serial_num(text):
         return True
     elif cnt_special == 0 and cnt_char == 0 and cnt_num == 5: # 면허번호
         return True
-    elif cnt_special == 0 and cnt_char >=2 and cnt_char <=4 and cnt_num == 0: # 이름 
+    elif cnt_special == 0 and cnt_char >=2 and cnt_char <=4 and cnt_num == 0: # 이름
         return True
     else:
         return False
