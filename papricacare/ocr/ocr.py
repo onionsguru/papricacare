@@ -101,10 +101,9 @@ def erase(src, **kwargs):
             ori = exif[274] # orientation info 1:normal 6: on right side (gyro-rotated)
             if ori != 1:
                 im = im.transpose(Image.ROTATE_270)
-    except AttributeError:
+    except AttributeError: # error when calling _getexif()
         pass
-    except Exception:
-        print('exception...!')
+    except Exception: # error when reading exif[278...]
         pass
     
     draw = ImageDraw.Draw(im)

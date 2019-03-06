@@ -169,6 +169,8 @@
 		$('#myImg').click(function() {
 	    	    $(this).toggleClass("thumb");
 	    });
+		
+		$('#myImg').attr('class', "thumb");
 
 		function imageIsLoaded(e) {
 	        $('#myImg').attr('src', e.target.result);
