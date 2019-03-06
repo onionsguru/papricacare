@@ -103,6 +103,9 @@ def erase(src, **kwargs):
                 im = im.transpose(Image.ROTATE_270)
     except AttributeError:
         pass
+    except Exception:
+        print('exception...!')
+        pass
     
     draw = ImageDraw.Draw(im)
     
