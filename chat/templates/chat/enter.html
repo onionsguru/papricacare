@@ -28,6 +28,7 @@
 			div.chater {
 				float:left;
 				overflow-y:auto;
+				overflow-y:auto;
 				width:30%;
 				height:320px;
 				margin: 0px;
@@ -70,7 +71,7 @@
 								
 				<br>
 				<input id='file_loader' type='file' accept="image/x-png,image/gif,image/jpeg"/>
-				<div id='img-div'><img id="myImg" src="#" class='thumb'></div>	 
+				<div id='img-div'><img id="myImg" src="#" class='thumb' alt='file loaded' title='file loaded'></div>	 
 				</div>	
 			</div>
 		</form>
@@ -169,8 +170,6 @@
 		$('#myImg').click(function() {
 	    	    $(this).toggleClass("thumb");
 	    });
-		
-		$('#myImg').attr('class', "thumb");
 
 		function imageIsLoaded(e) {
 	        $('#myImg').attr('src', e.target.result);
