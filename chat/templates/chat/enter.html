@@ -16,12 +16,12 @@
 
 			div.chat {
 				float:left;
+				overflow-x:auto;
 				overflow-y:auto;
 				width:70%;
-				height:300px;
+				height:320px;
 				margin: 0px;
 				padding: 3px;
-				overflow-y:auto;
 				background-color: lightyellow;
 				font-size: 14px;
 			}
@@ -29,7 +29,7 @@
 				float:left;
 				overflow-y:auto;
 				width:30%;
-				height:300px;
+				height:320px;
 				margin: 0px;
 				padding: 3px;
 				overflow-y:auto;
@@ -56,19 +56,16 @@
 		method="post">  
 			{% csrf_token %}
 			<div style='width:100%; display:inline-block;'>
-				<div style='float:left; width:40%;height:100%;padding:5px;margin:1px'>
-				
-				<!--  {{form.input_text}}<br> -->
-							
+				<div style='float:left; width:40%;height:100%;padding:5px;margin:1px'>							
 				<input type='text' id='input_text' autofocus='autofocus' autocomplete='off' style='width:100%'/>	
 				<button id='mysend' type='button'>Send</button>
 				<button id='myleave' type='button'> leave </button>
 				</div>
 				
 				<div style='float:right; width:58%;height:100%;border-style:dotted; padding:5px;margin:1px'>
-				<b>IMAGE FILTERS:</b>
-				<input id='on_anynum' type='checkbox' name='msgfilter' value='nums'>numbers, </input>
-				<input id='on_anychar' type='checkbox' name='msgfilter' value='chars'>characters, </input>
+				<b>IMAGE FILTERS:</b><br>
+				<input id='on_anynum' type='checkbox' name='msgfilter' value='nums'>digits, </input>
+				<input id='on_anychar' type='checkbox' name='msgfilter' value='chars'>letters, </input>
 				<input id='on_privacy' type='checkbox' name='msgfilter' value='privacies'>privacies </input>
 								
 				<br>

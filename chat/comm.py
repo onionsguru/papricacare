@@ -67,6 +67,7 @@ class ChatChannel(AsyncWebsocketConsumer):
             self.room_group_id,
             self.channel_name
         )
+        
 
     # Receive message from WebSocket
     async def receive(self, text_data):

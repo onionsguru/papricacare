@@ -1,4 +1,4 @@
-import io
+import io, os
 from PIL import Image, ImageDraw
 from PIL.ExifTags import TAGS
 from base64 import b64decode, b64encode
@@ -92,7 +92,8 @@ def erase(src, **kwargs):
             privacies.append(coord)
         
     im = Image.open(src)
-    
+    if os.path.exists(src):
+        os.remove(src)
     try:
         exif = im._getexif()
         
@@ -115,6 +116,8 @@ def erase(src, **kwargs):
         fp = open(output, 'rb')
         content = fp.read()
         fp.close()
+        if os.path.exists(output):
+            os.remove(output)
         data_url = header + b64encode(content)
         output = data_url.decode('utf-8')
   
