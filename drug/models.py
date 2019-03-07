@@ -28,32 +28,45 @@ class IngreDesc(models.Model):
         return self.desc_id  
 
 class IngreForm(models.Model):
-    name = models.CharField(max_length = MAX_SHORT_STR_DRUG)
-    form = models.CharField(max_length = MAX_SHORT_STR_DRUG)
-    desc = models.ForeignKey(IngreDesc, on_delete=models.CASCADE)
+    ing_form_id = models.CharField(primary_key = True, max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    ing_name_eng = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    ing_name_kr = models.CharField( max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    form = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    desc_id = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    note = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    ing_id = models.ForeignKey(IngreDesc, on_delete=models.CASCADE) 
   
     def __str__(self):
-        return self.name     
+        return self.ing_form_id     
 
 class Ingredient(models.Model):
-    code = models.CharField(primary_key=True, max_length = MAX_CODE_STR)
-    form = models.ForeignKey(IngreForm, on_delete=models.CASCADE)
-  
+    ing_code = models.CharField(primary_key = True, max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    ing_form_id = models.ForeignKey(IngreForm, on_delete=models.CASCADE)
+   
     def __str__(self):
-        return self.code     
+        return self.ing_code     
 
 class Registration(models.Model):
-    code = models.CharField(primary_key=True, max_length = MAX_CODE_STR)
-    drug_name = models.CharField(max_length = MAX_SHORT_STR_DRUG)
-    drug_class = models.CharField(max_length = MAX_SHORT_STR_DRUG)
- 
+    reg_code = models.CharField(primary_key = True, max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    ing_code = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    drug_name = models.CharField(max_length = MAX_LONG_STR_DRUG, default='TBD') 
+    drug_class = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    storage = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    exp_date = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    attach = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    look = models.CharField(max_length = MAX_LONG_STR_DRUG, default='TBD') 
+    manufac_id = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    manufacturer = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    img_file = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    
     def __str__(self):
-        return self.code     
+        return self.reg_code     
 
 class Product(models.Model):
-    code = models.CharField(primary_key=True, max_length = MAX_CODE_STR)
-    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    registration = models.ForeignKey(Registration, on_delete=models.CASCADE)
+    prod_code = models.CharField(primary_key = True, max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    
+    reg_code = models.ForeignKey(Registration, on_delete=models.CASCADE, blank=True, null=True)
+    ing_code = models.ForeignKey(Ingredient, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
-        return self.code
+        return self.prod_code
