@@ -103,10 +103,9 @@ run_message = run_message + f'Postgre run at "{db_endpoint}">'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'papricacaredb',
+    'NAME': 'papricacaredbmin',
     'USER': 'onions',
     'PASSWORD': 'onions2018',
-    #'HOST': 'papricacaredb.ce6uph5ztrl3.ap-northeast-2.rds.amazonaws.com',
     'HOST': db_endpoint,
     'PORT': '5432',
     }

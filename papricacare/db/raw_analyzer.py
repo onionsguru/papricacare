@@ -79,14 +79,14 @@ def read_tsv(tsv_file, table_name, postgre_conn):
 
     print(f'# completed with rows: {row_cnt} and errors: {err_cnt} for table {table_name}!')
 
-conn = psycopg2.connect(database="papricacaredb", user = "onions", 
+conn = psycopg2.connect(database="papricacaredbmin", user = "onions", 
         password = "onions2018", host = db_endpoint, port = "5432")
 
 if conn:
-    #read_tsv('DESC_H.tsv', 'drug_ingredesc', conn)
-    #read_tsv('REG.tsv', 'drug_registration', conn)
-    #read_tsv('ING_FORM.tsv', 'drug_ingreform', conn)
-    #read_tsv('ING_CODE.tsv', 'drug_ingredient', conn)
+    read_tsv('DESC_H.tsv', 'drug_ingredesc', conn)
+    read_tsv('REG.tsv', 'drug_registration', conn)
+    read_tsv('ING_FORM.tsv', 'drug_ingreform', conn)
+    read_tsv('ING_CODE.tsv', 'drug_ingredient', conn)
     read_tsv('PROD_NULL.tsv', 'drug_product', conn)
     print('# all are completed!')
     conn.close()

@@ -1,7 +1,7 @@
 from django.db import models
 from unittest.util import _MAX_LENGTH
 
-MAX_SHORT_STR_DRUG  = 1000
+MAX_SHORT_STR_DRUG  = 1500
 MAX_LONG_STR_DRUG   = 10000
 MAX_CODE_STR        = 9
 
