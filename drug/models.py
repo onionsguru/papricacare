@@ -1,7 +1,7 @@
 from django.db import models
 from unittest.util import _MAX_LENGTH
 
-MAX_SHORT_STR_DRUG  = 200
+MAX_SHORT_STR_DRUG  = 1000
 MAX_LONG_STR_DRUG   = 10000
 MAX_CODE_STR        = 9
 
@@ -53,7 +53,7 @@ class Registration(models.Model):
     drug_class = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
     storage = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
     exp_date = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
-    attach = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
+    attach = models.CharField(max_length = MAX_LONG_STR_DRUG, default='TBD') 
     look = models.CharField(max_length = MAX_LONG_STR_DRUG, default='TBD') 
     manufac_id = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
     manufacturer = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 

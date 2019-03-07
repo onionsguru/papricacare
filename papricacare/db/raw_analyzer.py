@@ -52,18 +52,18 @@ def list2parstr(cols, nested):
 def read_tsv(tsv_file, table_name, postgre_conn):
     fi = fileinput.input(tsv_file)
     cols = fi.readline()
-    cols = cols.rstrip()
+    cols = cols.replace('\n', '')
     cols = cols.split('\t')
     cur = postgre_conn.cursor()
     cols = list2parstr(cols, None)
     line = fi.readline()
     row_cnt, err_cnt = 0, 0
     while line:
-        line = line.rstrip()
+        line = line.replace('\n', '')
         attrs = line.split('\t') # list of strings
         attrs = list2parstr(attrs, "'")
         ins_sql = 'INSERT INTO {} {} VALUES {}'.format(table_name, cols, attrs )
-        #print(f'"{ins_sql}"')
+        print(f'"{ins_sql}"')
         try:
             cur.execute(ins_sql);
             postgre_conn.commit()
@@ -76,8 +76,7 @@ def read_tsv(tsv_file, table_name, postgre_conn):
             print(f'# {err_cnt}-db insert (pk) error: "{ins_sql}"')
             
         line = fi.readline()
-        
-    postgre_conn.close()
+
     print(f'# completed with rows: {row_cnt} and errors: {err_cnt} for table {table_name}!')
 
 conn = psycopg2.connect(database="papricacaredb", user = "onions", 
@@ -89,5 +88,7 @@ if conn:
     #read_tsv('ING_FORM.tsv', 'drug_ingreform', conn)
     #read_tsv('ING_CODE.tsv', 'drug_ingredient', conn)
     read_tsv('PROD_NULL.tsv', 'drug_product', conn)
+    print('# all are completed!')
+    conn.close()
 else:
     print('# error in connecting to the postgre db!')
