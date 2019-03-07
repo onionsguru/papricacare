@@ -56,8 +56,8 @@ INSTALLED_APPS = [
     'drug.apps.DrugConfig',
     'chat.apps.ChatConfig',
     'channels',
-    'rest_framework',
     'accounts.apps.AccountsConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -167,4 +167,15 @@ CHANNEL_LAYERS = {
     }
 }
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
 print(run_message)
