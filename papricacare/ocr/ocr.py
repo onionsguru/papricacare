@@ -3,6 +3,7 @@ from PIL import Image, ImageDraw
 from PIL.ExifTags import TAGS
 from base64 import b64decode, b64encode
 from django.urls import reverse
+from django.core.exceptions import ObjectDoesNotExist
 
 def count_chars(text):
     cnt_num, cnt_char, cnt_special = 0, 0, 0
@@ -57,28 +58,51 @@ def detect_text(path):
     texts = response.text_annotations
     return texts
 
-def erase(src, **kwargs):
-    type = kwargs.get('type', None)
-    is_privacy = kwargs.get('is_privacy', False)
-    is_num = kwargs.get('is_num', False)
-    is_char = kwargs.get('is_char', False)
+def process(attr):    
+    src = attr.get('img_src', None)
+    is_privacy = attr.get('is_privacy', False)
+    is_num = attr.get('is_num', False)
+    is_char = attr.get('is_char', False)
+
+    is_drug = attr.get('is_drug', False)
+    is_disease = attr.get('is_disease', False)
+    is_hosp = attr.get('is_hosp', False)
    
-    if type == 'dataurl':
-        data_uri = src
-        header, encoded = data_uri.split(",", 1)
-        data = b64decode(encoded)
-        
-        src = '.temp.temp'
-        fp = io.open(src, 'wb')
-        fp.write(data)
-        fp.close()
+    data_uri = src
+    header, encoded = data_uri.split(",", 1)
+    data = b64decode(encoded)
+    
+    src = '.temp.temp'
+    fp = io.open(src, 'wb')
+    fp.write(data)
+    fp.close()
         
     texts = detect_text(src)
     
-    if len(texts) == 0:
-        print('OCR results in nothing!')
-        return None
-    # print(texts[0].description
+    if is_drug:
+        import drug
+        candidates = []
+        for i in range(1, len(texts)):
+            des = texts[i].description
+    
+            #print(f'{des}:{len(des)}')
+            try:
+                if len(des) >= 3:
+                    cnt_num, cnt_char, cnt_special = count_chars(des)
+                    if cnt_num == 0 and cnt_special == 0:
+                        temp = drug.models.Registration.objects.filter(drug_name__contains=des)
+                        for i in temp:
+                            if i.drug_name not in candidates: 
+                                # print(f'({des}:{len(des)},{i.drug_name})')
+                                candidates.append(i.drug_name)
+            except ObjectDoesNotExist:
+                pass    
+            
+        texts = candidates
+    
+    if len(texts) == 0 or (is_privacy == False and is_num == False and is_char == False):
+        return (texts, None)
+    
     privacies=[]
 
     for i in range(1, len(texts)):
@@ -115,15 +139,14 @@ def erase(src, **kwargs):
     output = '.safe.png'
     im.save(output)
     
-    if type == 'dataurl':
-        header = b'data:image/png;base64,'
-        fp = open(output, 'rb')
-        content = fp.read()
-        fp.close()
-        if os.path.exists(output):
-            os.remove(output)
-        data_url = header + b64encode(content)
-        output = data_url.decode('utf-8')
+    header = b'data:image/png;base64,'
+    fp = open(output, 'rb')
+    content = fp.read()
+    fp.close()
+    if os.path.exists(output):
+        os.remove(output)
+    data_url = header + b64encode(content)
+    output = data_url.decode('utf-8')
   
-    return output
+    return (texts, output)
                         

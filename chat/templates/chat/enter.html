@@ -68,8 +68,13 @@
 				<input id='on_anynum' type='checkbox' name='msgfilter' value='nums'>digits, </input>
 				<input id='on_anychar' type='checkbox' name='msgfilter' value='chars'>letters, </input>
 				<input id='on_privacy' type='checkbox' name='msgfilter' value='privacies'>privacies </input>
-								
+				<br><hr>
+				<b>NAME EXTRACTORS:</b><br>
+				<input id='on_drug' type='checkbox' name='extractor' value='drug'>drugs, </input>
+				<input id='on_disease' type='checkbox' name='extractor' value='disease'>diseases, </input>
+				<input id='on_hosp' type='checkbox' name='extractor' value='hosp'>hospitals </input>
 				<br>
+				<hr>
 				<input id='file_loader' type='file' accept="image/x-png,image/gif,image/jpeg"/>
 				<div id='img-div'><img id="myImg" src="#" class='thumb'></div>	 
 				</div>	
@@ -109,11 +114,15 @@
 			sh = talkarea.prop('scrollHeight');
 			h = talkarea.height();
 			st = talkarea.scrollTop();
+			
 			if( sh > h + st )
 		    	talkarea.scrollTop(sh-h);
 			$('#on_privacy').prop('checked', false)
 			$('#on_anynum').prop('checked', false)
 			$('#on_anychar').prop('checked', false)
+			$('#on_drug').prop('checked', false)
+			$('#on_disease').prop('checked', false)
+			$('#on_hosp').prop('checked', false)
 		};
 		
 		chatSocket.onclose = function(e) {
@@ -128,15 +137,17 @@
 			var is_num = $('#on_anynum').prop('checked')
 			var is_char = $('#on_anychar').prop('checked')
 			var img_src = $('#myImg').attr('src');
+			var is_drug = $('#on_drug').prop('checked')
+			var is_disease = $('#on_disease').prop('checked')
+			var is_hosp = $('#on_hosp').prop('checked')
 			
 			chatSocket.send(JSON.stringify({
 		        'message': message,
 		        'user': "{{user.id}}",
 		        'attr': {'img_src':img_src, 'is_privacy':is_privacy, 'is_num':is_num, 
-		        	'is_char':is_char}
+		        	'is_char':is_char, 'is_drug':is_drug, 'is_disease':is_disease, 'is_hosp': is_hosp}
 		    }));
-			var tar = $('#talk_area');
-		  
+			
 		    if( $('#myImg').attr('src') != '#' ) {
 			    $('#myImg').attr('src', '#');
 			    $('#myImg').addClass('thumb');
@@ -157,7 +168,6 @@
 		$('#mysend').click(function (e) {
 			f_send($('#input_text').val());
 			$('#input_text').val('');
-			$('#myImg').attr('src', '#');
 			$('#input_text').focus();
 			e.preventDefault();
 		});

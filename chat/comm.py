@@ -84,13 +84,13 @@ class ChatChannel(AsyncWebsocketConsumer):
             self.talk_backlog[self.room_group_id] = ''
             
         # print(f'talk = "{self.talk_backlog[self.room_group_id]}"')
-            
+
         if attr['img_src'] != '#' and \
-            (attr['is_privacy'] or attr['is_num'] or attr['is_char']):
-            attr['img_src'] = ocr.erase(attr['img_src'], type='dataurl', 
-                                        is_privacy=attr['is_privacy'],
-                                        is_num=attr['is_num'],
-                                        is_char=attr['is_char'])
+            (attr['is_privacy'] or attr['is_num'] or attr['is_char'] or\
+             attr['is_drug'] or attr['is_disease'] or attr['is_hosp']):
+            (texts, attr['img_src']) = ocr.process(attr)
+            if attr['is_drug'] and texts:
+                message = message + str(texts)
             
         # Send message to room group
         await self.channel_layer.group_send(

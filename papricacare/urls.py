@@ -15,64 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from drug import viewsets
 import views
-from rest_framework import routers, serializers, viewsets
-import drug
-
-# Serializers define the API representation.
-class DrugSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = drug.models.Product
-        fields = ('__all__')
-
-class RegiSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = drug.models.Registration
-        fields = ('__all__')
-
-class IngreSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = drug.models.Ingredient
-        fields = ('__all__')
-
-class FormSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = drug.models.IngreForm
-        fields = ('__all__')
-        
-class DescSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = drug.models.IngreDesc
-        fields = ('__all__')
-        
-# ViewSets define the view behavior.
-class DrugViewSet(viewsets.ModelViewSet):
-    queryset = drug.models.Product.objects.all()
-    serializer_class = DrugSerializer
-    
-class RegiViewSet(viewsets.ModelViewSet):
-    queryset = drug.models.Registration.objects.all()
-    serializer_class = RegiSerializer
-    
-class IngreViewSet(viewsets.ModelViewSet):
-    queryset = drug.models.Ingredient.objects.all()
-    serializer_class = IngreSerializer
-    
-class FormViewSet(viewsets.ModelViewSet):
-    queryset = drug.models.IngreForm.objects.all()
-    serializer_class = FormSerializer
-    
-class DescViewSet(viewsets.ModelViewSet):
-    queryset = drug.models.IngreDesc.objects.all()
-    serializer_class = DescSerializer
+from rest_framework import routers
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register(r'drug', DrugViewSet)
-router.register(r'regi', RegiViewSet)
-router.register(r'ingre', IngreViewSet)
-router.register(r'form', FormViewSet)
-router.register(r'desc', DescViewSet)
+router.register(r'prod', viewsets.ProdViewSet)
+router.register(r'regi', viewsets.RegiViewSet)
+router.register(r'ingre', viewsets.IngreViewSet)
+router.register(r'form', viewsets.FormViewSet)
+router.register(r'desc', viewsets.DescViewSet)
+# /drug/<str:name>/name
 
 urlpatterns = [
     path('admin/', admin.site.urls),
