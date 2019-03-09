@@ -52,7 +52,7 @@ def detect_text(path):
     return texts
 
 def process(attr):    
-    src = attr.get('img_src', None)
+    data_url = attr.get('img_src', None)
     is_privacy = attr.get('is_privacy', False)
     is_num = attr.get('is_num', False)
     is_char = attr.get('is_char', False)
@@ -61,8 +61,7 @@ def process(attr):
     is_disease = attr.get('is_disease', False)
     is_hosp = attr.get('is_hosp', False)
    
-    data_uri = src
-    header, encoded = data_uri.split(",", 1)
+    header, encoded = data_url.split(",", 1)
     data = b64decode(encoded)
     
     src = '.temp.temp'
@@ -110,7 +109,7 @@ def process(attr):
                     pass    
                 
     if len(texts) == 0 or (is_privacy == False and is_num == False and is_char == False):
-        return (candidates, None)
+        return (candidates, '#')
     
     privacies=[]
 
