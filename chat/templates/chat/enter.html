@@ -19,7 +19,7 @@
 				overflow-x:auto;
 				overflow-y:auto;
 				width:70%;
-				height:480px;
+				height:420px;
 				margin: 0px;
 				padding: 3px;
 				background-color: lightyellow;
@@ -30,7 +30,7 @@
 				overflow-y:auto;
 				overflow-y:auto;
 				width:30%;
-				height:480px;
+				height:420px;
 				margin: 0px;
 				padding: 3px;
 				overflow-y:auto;
@@ -48,7 +48,7 @@
 			
 		</style>
 		
-		<div style='display:inline-block;width:100%'>
+		<div style='display:inline-block;width:100%;'>
 			<div id='talk_area' class='chat'> </div>
 			<div class='chater' id='chatters'>...</div>	
 		</div>
@@ -156,7 +156,24 @@
 		} 
 		
 		$('#myform').submit( function () {return false;} );
+		
+		var timer;
 		$('#input_text').keydown( function (e) {
+			if( timer ) window.clearTimeout(timer);
+			timer=setTimeout( function() {
+				$.get( "localhost:8000/api/regi/?format=json", 
+					function() {
+						console.log('success..');
+					}).done(function() {
+						console.log('one more success...');
+					}).fail(function() {
+						console.log('error...');
+					}).always(function() {
+						console.log('has tried to get...');
+					});
+				
+			}, 2000);
+			
 			if( e.which == 13 ) {
 				f_send($(this).val());
 				$(this).val('');

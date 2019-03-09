@@ -34,14 +34,14 @@ class IngreForm(models.Model):
     form = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
     desc_id = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
     note = models.CharField(max_length = MAX_SHORT_STR_DRUG, default='TBD') 
-    ing_id = models.ForeignKey(IngreDesc, related_name='forms', on_delete=models.CASCADE) 
+    ing_id = models.ForeignKey(IngreDesc, related_name='forms', on_delete=models.CASCADE, blank=True, null=True) 
   
     def __str__(self):
         return self.ing_form_id     
 
 class Ingredient(models.Model):
     ing_code = models.CharField(primary_key = True, max_length = MAX_SHORT_STR_DRUG, default='TBD') 
-    ing_form_id = models.ForeignKey(IngreForm, related_name='ingres', on_delete=models.CASCADE)
+    ing_form_id = models.ForeignKey(IngreForm, related_name='ingres', on_delete=models.CASCADE, blank=True, null=True)
    
     def __str__(self):
         return self.ing_code     
@@ -66,10 +66,6 @@ class Product(models.Model):
     prod_code = models.CharField(primary_key = True, max_length = MAX_SHORT_STR_DRUG, default='TBD') 
     reg_code = models.ForeignKey(Registration, related_name='drugs', on_delete=models.CASCADE, blank=True, null=True)
     ing_code = models.ForeignKey(Ingredient, related_name='drugs', on_delete=models.CASCADE, blank=True, null=True)
-    
-    class Meta:
-        unique_together = ('reg_code', 'prod_code')
-        ordering = ['prod_code']
 
     def __str__(self):
         return self.prod_code

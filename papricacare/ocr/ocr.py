@@ -83,21 +83,40 @@ def process(attr):
         import drug
         candidates = []
         for i in range(1, len(texts)):
-            des = texts[i].description
-    
-            #print(f'{des}:{len(des)}')
+            p_code = texts[i].description
+            # print(f'{p_code}:{len(p_code)}')
             try:
-                if len(des) >= 3:
-                    cnt_num, cnt_char, cnt_special = count_chars(des)
-                    if cnt_num == 0 and cnt_special == 0:
-                        temp = drug.models.Registration.objects.filter(drug_name__contains=des)
-                        for i in temp:
-                            if i.drug_name not in candidates: 
-                                # print(f'({des}:{len(des)},{i.drug_name})')
-                                candidates.append(i.drug_name)
+                cnt_num, cnt_char, cnt_special = count_chars(p_code)
+                if cnt_num >= 8:
+                    p = drug.models.Product.objects.filter(prod_code__contains=p_code)
+                    for c in p:
+                        print(f'- A possible drug code: "{c}"')
+                        r = drug.models.Registration.objects.get(pk=c.reg_code)
+                        if c.ing_code: # becasue fk is handled to keep going by nulll 
+                            i = drug.models.Ingredient.objects.get(pk=c.ing_code)
+                            if i.ing_form_id:
+                                f = drug.models.IngreForm.objects.get(pk=i.ing_form_id)
+                                if f.ing_id:
+                                    d = drug.models.IngreDesc.objects.get(pk=f.ing_id)
+                                    drug_info = {'drug_name':r.drug_name, 
+                                                 'form_name':f.ing_name_kr,
+                                                 'one_liner_kr':d.one_liner_kr}
+                                else:
+                                    drug_info = {'drug_name':r.drug_name,
+                                                 'form_name':f.ing_name_kr}
+                            else:
+                                drug_info = {'drug_name':r.drug_name}
+                                    
+                            if drug_info not in candidates: 
+                                candidates.append(drug_info)
+                        else: # case that the fk:ing_code = null
+                            drug_info = {'drug_name':r.drug_name}
+                            if drug_info not in candidates: 
+                                candidates.append(drug_info)                               
+                            
             except ObjectDoesNotExist:
-                pass    
-            
+                    pass    
+                
         texts = candidates
     
     if len(texts) == 0 or (is_privacy == False and is_num == False and is_char == False):

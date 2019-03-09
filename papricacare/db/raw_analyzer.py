@@ -61,23 +61,48 @@ def read_tsv(tsv_file, table_name, postgre_conn):
     while line:
         line = line.replace('\n', '')
         attrs = line.split('\t') # list of strings
+        attrs_alt = list(attrs)
+        attrs_alt[-1] = 'NULL'
         attrs = list2parstr(attrs, "'")
+        attrs_alt = list2parstr(attrs_alt, "'")
         ins_sql = 'INSERT INTO {} {} VALUES {}'.format(table_name, cols, attrs )
-        print(f'"{ins_sql}"')
+        ins_sql_alt = 'INSERT INTO {} {} VALUES {}'.format(table_name, cols, attrs_alt )
+        #print(f'{ins_sql}') 
+        print('.',end='',flush=True),       
+        
         try:
-            cur.execute(ins_sql);
-            postgre_conn.commit()
+            cur.execute(ins_sql)
             row_cnt += 1
-        except psycopg2.IntegrityError:
+            postgre_conn.commit()
+        except psycopg2.IntegrityError as detail:
+            postgre_conn.rollback()
             err_cnt += 1
-            print(f'# {err_cnt}-db insert (fk) error: "{ins_sql}"')
-        except psycopg2.InternalError:
+            #print(f'-----> "{detail.args[0]}"')
+            if 'duplicate key' in detail.args[0]: # duplicated pk
+                print(f'# {err_cnt}-pk error: "{ins_sql}"')
+            elif 'foreign key' in detail.args[0]: # no matched fk
+                # print(f'# {err_cnt}-db fk error: "{ins_sql}"')
+                try:
+                    cur.execute(ins_sql_alt)
+                    postgre_conn.commit()
+                    row_cnt += 1 
+                    err_cnt -= 1
+                    print(f'# {err_cnt}-fk warning: "{ins_sql}" -> by setting the foreign key null')
+                except psycopg2.IntegrityError as detail:
+                    postgre_conn.rollback()
+                    if 'forein key' in detail.args[0]: # no present fk
+                        print(f'# {err_cnt}-fk error: "{ins_sql_alt}"')
+            else:
+                print(f'# {err_cnt}-unhandled error: "{ins_sql}"')
+        except psycopg2.InternalError as detail:
+            postgre_conn.rollback()
             err_cnt += 1
-            print(f'# {err_cnt}-db insert (pk) error: "{ins_sql}"')
-            
+            if 'aborted' in detail.args[0]: # duplicated pk
+                print(f'# {err_cnt}-db aborted error: "{ins_sql}"')
+
         line = fi.readline()
 
-    print(f'# completed with rows: {row_cnt} and errors: {err_cnt} for table {table_name}!')
+    print(f'\n# completed with rows: {row_cnt} and errors: {err_cnt} for table {table_name}!')
 
 conn = psycopg2.connect(database="papricacaredbmin", user = "onions", 
         password = "onions2018", host = db_endpoint, port = "5432")
@@ -88,7 +113,7 @@ if conn:
     read_tsv('ING_FORM.tsv', 'drug_ingreform', conn)
     read_tsv('ING_CODE.tsv', 'drug_ingredient', conn)
     read_tsv('PROD_NULL.tsv', 'drug_product', conn)
-    print('# all are completed!')
-    conn.close()
+    if conn.close():
+        print('# all completed!')
 else:
     print('# error in connecting to the postgre db!')

@@ -90,7 +90,7 @@ class ChatChannel(AsyncWebsocketConsumer):
              attr['is_drug'] or attr['is_disease'] or attr['is_hosp']):
             (texts, attr['img_src']) = ocr.process(attr)
             if attr['is_drug'] and texts:
-                message = message + str(texts)
+                message = message + f'<div style="color:red;">{len(texts)} extracted: ' + str(texts) +'</div>'
             
         # Send message to room group
         await self.channel_layer.group_send(
