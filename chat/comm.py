@@ -88,9 +88,9 @@ class ChatChannel(AsyncWebsocketConsumer):
         if attr['img_src'] != '#' and \
             (attr['is_privacy'] or attr['is_num'] or attr['is_char'] or\
              attr['is_drug'] or attr['is_disease'] or attr['is_hosp']):
-            (texts, attr['img_src']) = ocr.process(attr)
-            if attr['is_drug'] and texts:
-                message = message + f'<div style="color:red;">{len(texts)} extracted: ' + str(texts) +'</div>'
+            (candidates, attr['img_src']) = ocr.process(attr)
+            if attr['is_drug'] and candidates:
+                message = message + f'<div style="color:red;">{len(candidates)} extracted: ' + str(candidates) +'</div>'
             
         # Send message to room group
         await self.channel_layer.group_send(

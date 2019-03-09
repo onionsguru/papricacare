@@ -16,9 +16,7 @@ def count_chars(text):
 
 def is_serial_num(text):
     cnt_num, cnt_char, cnt_special = count_chars(text)
-    
-    print(text, cnt_num,cnt_char,cnt_special)
-
+    #print(text, cnt_num,cnt_char,cnt_special)
     if cnt_num >= 13 and '-' in text: # 주민번호 패턴
         return True
     elif cnt_special == 0 and \
@@ -78,10 +76,10 @@ def process(attr):
     fp.close()
         
     texts = detect_text(src)
+    candidates = []
     
     if is_drug:
         import drug
-        candidates = []
         for i in range(1, len(texts)):
             p_code = texts[i].description
             # print(f'{p_code}:{len(p_code)}')
@@ -113,12 +111,9 @@ def process(attr):
                             drug_info = {'drug_name':r.drug_name}
                             if drug_info not in candidates: 
                                 candidates.append(drug_info)                               
-                            
             except ObjectDoesNotExist:
                     pass    
                 
-        texts = candidates
-    
     if len(texts) == 0 or (is_privacy == False and is_num == False and is_char == False):
         return (texts, None)
     
@@ -166,6 +161,6 @@ def process(attr):
         os.remove(output)
     data_url = header + b64encode(content)
     output = data_url.decode('utf-8')
-  
-    return (texts, output)
+
+    return (candidates, output)
                         
