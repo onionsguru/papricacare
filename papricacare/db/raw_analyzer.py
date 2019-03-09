@@ -108,6 +108,14 @@ conn = psycopg2.connect(database="papricacaredbmin", user = "onions",
         password = "onions2018", host = db_endpoint, port = "5432")
 
 if conn:
+    cur = conn.cursor()
+    cur.execute('delete from drug_ingredesc')
+    cur.execute('delete from drug_ingreform')
+    cur.execute('delete from drug_ingredient')
+    cur.execute('delete from drug_registration')
+    cur.execute('delete from drug_product')
+    conn.commit()
+    print('# all rows deleted!')
     read_tsv('DESC_H.tsv', 'drug_ingredesc', conn)
     read_tsv('REG.tsv', 'drug_registration', conn)
     read_tsv('ING_FORM.tsv', 'drug_ingreform', conn)

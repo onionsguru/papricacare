@@ -122,7 +122,6 @@ class TalkView(generic.FormView):
     form_class = forms.EnterForm
 
     def get(self, request, *args, **kwargs ):
-
         chatroom = models.Chatroom.objects.all().get(pk=kwargs['pk'])
         user = models.User.objects.all().get(pk=kwargs['chatter_id'])
         form = self.form_class()           
