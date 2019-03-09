@@ -110,7 +110,7 @@ def process(attr):
                     pass    
                 
     if len(texts) == 0 or (is_privacy == False and is_num == False and is_char == False):
-        return (texts, None)
+        return (candidates, None)
     
     privacies=[]
 
