@@ -8,12 +8,12 @@ from papricacare.ocr import ocr
 import io
 
 class ChatChannel(AsyncWebsocketConsumer):
-    talk_backlog = dict(str())
-   
+    
     async def connect(self):
         self.room_id = self.scope['url_route']['kwargs']['room_id']
         self.user_id = self.scope['url_route']['kwargs']['user_id']
         self.room_group_id = 'chat_%s' % self.room_id
+        
         user = models.User.objects.all().get(pk=self.user_id)        
         cur_time = datetime.datetime.now(pytz.timezone('Asia/Seoul'))
         time_text = str(cur_time)
@@ -67,31 +67,31 @@ class ChatChannel(AsyncWebsocketConsumer):
             self.room_group_id,
             self.channel_name
         )
-        
-
+ 
     # Receive message from WebSocket
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)
-        message = text_data_json['message']
-        user_id = text_data_json['user']
-        attr = text_data_json['attr']
-        user = models.User.objects.all().get(pk=user_id)
-        message = f'<b>{user.nickname_text}</b> : {message}'
-
         try:
-            self.talk_backlog[self.room_group_id] = self.talk_backlog[self.room_group_id] + message
+            message = text_data_json['message']
+            user_id = text_data_json['user']
+            attr = text_data_json['attr']
+            
+            user = models.User.objects.all().get(pk=user_id)
+            message = f'<b>{user.nickname_text}</b> : {message}'
+    
+            if attr['img_src'] != '#' and \
+                (attr['is_privacy'] or attr['is_num'] or attr['is_char'] or\
+                 attr['is_drug'] or attr['is_disease'] or attr['is_hosp']):
+                (candidates, attr['img_src']) = ocr.process(attr)
+                if attr['is_drug']:
+                    message = message + f'<div style="color:red;">{len(candidates)} extracted: ' + str(candidates) +'</div>'
         except KeyError:
-            self.talk_backlog[self.room_group_id] = ''
-            
-        # print(f'talk = "{self.talk_backlog[self.room_group_id]}"')
-
-        if attr['img_src'] != '#' and \
-            (attr['is_privacy'] or attr['is_num'] or attr['is_char'] or\
-             attr['is_drug'] or attr['is_disease'] or attr['is_hosp']):
-            (candidates, attr['img_src']) = ocr.process(attr)
-            if attr['is_drug']:
-                message = message + f'<div style="color:red;">{len(candidates)} extracted: ' + str(candidates) +'</div>'
-            
+            message = 'a wrong request'
+            attr = dict()
+            attr['img_src'] = '#'  
+            print(f'# error of {message}: "{text_data_json}"')
+                         
+        
         # Send message to room group
         await self.channel_layer.group_send(
             self.room_group_id,
@@ -101,7 +101,7 @@ class ChatChannel(AsyncWebsocketConsumer):
                 'img_src': attr['img_src']
             }
         )
-
+            
     def get_chatters(self, id):
         chatroom = models.Chatroom.objects.all().get(pk=id)
         chatter_list = []

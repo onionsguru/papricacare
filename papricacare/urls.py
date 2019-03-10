@@ -40,4 +40,4 @@ urlpatterns = [
     path('chat/', include('chat.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]

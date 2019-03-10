@@ -7,14 +7,34 @@
 {% csrf_token %}
 <input type='file' id='file_loader' required/>
 <hr>
+<!-- 
 <input type='submit' value='get it~'/>
+-->
+<button id='mysend' type='button'>OCR 분석</button>
 </form>
 
 <br>
-<textarea id='ocr_text' rows='15' cols='40'>여기에 가져온 OCR 데이터 표시할 예정...</textarea>
+<div id='ocr_text'>여기에 OCR 처리 결과를 표시할 예정임 ...</div>
+<img id='ocr_img_output' src='#' name='image' style='width:200px;height:auto;'/><br>
 
 <script>
 $(document).ready(function() {
+	var chatSocket = new WebSocket(
+	        'ws://' + window.location.host +
+	        '/ws/ocr/');
+
+	chatSocket.onmessage = function(e) {
+		$('#ajaxBusy').hide(); 
+		
+	    var data = JSON.parse(e.data);
+	    $('#ocr_text').html(data['message']);
+		$('#ocr_img_output').attr('src', data['img_src'] );
+	};
+	
+	chatSocket.onclose = function(e) {
+	    alert('You have left the ocr app for some reason!');
+	};
+		
 	function imageIsLoaded(e) {
         $('#ocr_img').attr('src', e.target.result);
     };
@@ -26,6 +46,31 @@ $(document).ready(function() {
             reader.readAsDataURL(this.files[0]);
         }
     });
+    
+	function ocr_send(message) {
+		$('#ajaxBusy').show();
+		var attr = { 'is_privacy': true, 'is_num': false, 'is_char':false, 
+				'img_src': $('#ocr_img').attr('src'), 
+				'is_drug':true, 'is_disease':false, 'is_hosp':false  };
+		
+		chatSocket.send(JSON.stringify({
+	        'message': message,
+	        'attr': attr
+	    }));
+		
+	    if( $('#ocr_img').attr('src') != '#' ) {
+		    $('#ocr_img').attr('src', '#');
+		    $('#ocr_img').addClass('thumb');
+		    $("#file_loader").val('');
+		}
+	} 
+	$('#myform').submit( function () {return false;} );
+	$('#mysend').click( function(e) {
+		if( $('#ocr_img').attr('src') != '#' ) {
+			ocr_send('');
+		}
+		e.preventDefault();
+	});
     
     // for waiting animation
     $('body').append('<div id="ajaxBusy" class="centered-div"><p><img src="/static/chat/ajax-loader.gif"></p></div>');
