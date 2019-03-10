@@ -18,6 +18,8 @@ from django.urls import path, include
 from drug import viewsets
 import views
 from rest_framework import routers
+from django.conf import settings
+from django.conf.urls.static import static
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
@@ -31,10 +33,11 @@ router.register(r'desc', viewsets.DescViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('drug/', include('drug.urls')),
+    path('ocr/', include('ocr.urls')),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', views.HomeView.as_view(), name='home'),
     path('chat/', include('chat.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

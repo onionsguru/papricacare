@@ -156,24 +156,8 @@
 		} 
 		
 		$('#myform').submit( function () {return false;} );
-		
-		var timer;
+
 		$('#input_text').keydown( function (e) {
-			if( timer ) window.clearTimeout(timer);
-			timer=setTimeout( function() {
-				$.get( "localhost:8000/api/regi/?format=json", 
-					function() {
-						console.log('success..');
-					}).done(function() {
-						console.log('one more success...');
-					}).fail(function() {
-						console.log('error...');
-					}).always(function() {
-						console.log('has tried to get...');
-					});
-				
-			}, 2000);
-			
 			if( e.which == 13 ) {
 				f_send($(this).val());
 				$(this).val('');
@@ -207,7 +191,6 @@
                 var reader = new FileReader();
                 reader.onload = imageIsLoaded;
                 reader.readAsDataURL(this.files[0]);
-
             }
         });
         

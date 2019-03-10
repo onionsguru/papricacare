@@ -10,15 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-try:
-    if __SETTING__ == True:
-        exit()
-except NameError:
-    __SETTING__ = True
-
 import os, sys
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -58,6 +51,7 @@ INSTALLED_APPS = [
     'channels',
     'accounts.apps.AccountsConfig',
     'rest_framework',
+    'ocr.apps.OcrConfig',
 ]
 
 MIDDLEWARE = [
@@ -176,5 +170,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 print(run_message)

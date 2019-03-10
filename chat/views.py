@@ -5,8 +5,8 @@ from django.views import generic
 from chat import forms, models
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-import datetime
 from django.core.exceptions import ObjectDoesNotExist 
+import datetime
 
 class ChatInfo:
     title = None

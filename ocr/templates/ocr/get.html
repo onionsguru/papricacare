@@ -1,0 +1,35 @@
+{% extends "ocr/base.html" %}
+
+{% block body %}
+<img id='ocr_img' src='#' name='image' style='width:200px;height:auto;'/><br>
+
+<form id='myform' action="{% url 'ocr:getit' %}" method='post'>
+{% csrf_token %}
+<input type='file' id='file_loader' required/>
+<hr>
+<input type='submit' value='get it~'/>
+</form>
+
+<br>
+<textarea id='ocr_text' rows='15' cols='40'>여기에 가져온 OCR 데이터 표시할 예정...</textarea>
+
+<script>
+$(document).ready(function() {
+	function imageIsLoaded(e) {
+        $('#ocr_img').attr('src', e.target.result);
+    };
+    
+    $("#file_loader").change(function () {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = imageIsLoaded;
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+    
+    // for waiting animation
+    $('body').append('<div id="ajaxBusy" class="centered-div"><p><img src="/static/chat/ajax-loader.gif"></p></div>');
+    $('#ajaxBusy').hide(); 
+});
+</script>
+{% endblock %}
