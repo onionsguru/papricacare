@@ -19,7 +19,6 @@ class OcrChannel(AsyncWebsocketConsumer):
         await self.accept()
         print(f'ocr websocket connected:{OcrChannel.id}')
 
-
     async def disconnect(self, close_code):
         # Leave room group
         await self.channel_layer.group_discard(
