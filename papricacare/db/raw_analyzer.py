@@ -109,7 +109,6 @@ conn = psycopg2.connect(database="papricacaredbmin", user = "onions",
 
 if conn:
     cur = conn.cursor()
-    '''
     cur.execute('delete from drug_ingredesc')
     cur.execute('delete from drug_ingreform')
     cur.execute('delete from drug_ingredient')
@@ -120,7 +119,6 @@ if conn:
     
     read_tsv('DESC.tsv', 'drug_ingredesc', conn)
     read_tsv('REG.tsv', 'drug_registration', conn)
-    '''
     read_tsv('ING_FORM.tsv', 'drug_ingreform', conn)
     read_tsv('ING.tsv', 'drug_ingredient', conn)
     read_tsv('PROD.tsv', 'drug_product', conn)
