@@ -76,10 +76,10 @@ def process(attr):
         import drug
         for i in range(1, len(texts)):
             p_code = texts[i].description
-            # print(f'{p_code}:{len(p_code)}')
+            print(f'{p_code}:{len(p_code)}')
             try:
                 cnt_num, cnt_char, cnt_special = count_chars(p_code)
-                if cnt_num >= 8:
+                if cnt_num >= 7:
                     p = drug.models.Product.objects.filter(prod_code__contains=p_code)
                     for c in p:
                         print(f'- A possible drug code: "{c}"')
