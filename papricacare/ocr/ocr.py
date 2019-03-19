@@ -79,7 +79,7 @@ def process(attr):
             print(f'{p_code}:{len(p_code)}')
             try:
                 cnt_num, cnt_char, cnt_special = count_chars(p_code)
-                if cnt_num >= 7:
+                if cnt_num >= 8:
                     p = drug.models.Product.objects.filter(prod_code__contains=p_code)
                     for c in p:
                         print(f'- A possible drug code: "{c}"')
@@ -88,8 +88,8 @@ def process(attr):
                             i = drug.models.Ingredient.objects.get(pk=c.ing_code)
                             if i.ing_form_id:
                                 f = drug.models.IngreForm.objects.get(pk=i.ing_form_id)
-                                if f.ing_id:
-                                    d = drug.models.IngreDesc.objects.get(pk=f.ing_id)
+                                if f.desc_id:
+                                    d = drug.models.IngreDesc.objects.get(pk=f.desc_id)
                                     drug_info = {'drug_name':r.drug_name, 
                                                  'form_name':f.ing_name_kr,
                                                  'one_liner_kr':d.one_liner_kr}
@@ -99,14 +99,14 @@ def process(attr):
                             else:
                                 drug_info = {'drug_name':r.drug_name}
                                     
-                            if drug_info not in candidates: 
+                            if drug_info not in candidates:
                                 candidates.append(drug_info)
                         else: # case that the fk:ing_code = null
                             drug_info = {'drug_name':r.drug_name}
                             if drug_info not in candidates: 
-                                candidates.append(drug_info)                               
-            except ObjectDoesNotExist:
-                    pass    
+                                candidates.append(drug_info)                            
+            except ObjectDoesNotExist as details:
+                    print(details.args[0])    
                 
     if len(texts) == 0 or (is_privacy == False and is_num == False and is_char == False):
         return (candidates, '#')

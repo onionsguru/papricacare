@@ -37,6 +37,8 @@ $(document).ready(function() {
 		
 	function imageIsLoaded(e) {
         $('#ocr_img').attr('src', e.target.result);
+        $('#ocr_img_output').attr('src', '#');
+        $('#ocr_text').html('');
     };
     
     $("#file_loader").change(function () {
