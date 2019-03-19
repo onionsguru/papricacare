@@ -1,0 +1,954 @@
+raw_analyzer is running locally.
+# all rows deleted!
+
+# completed with rows: 100 and errors: 0 for table drug_product!
+
+# completed with rows: 600 and errors: 0 for table drug_product!
+
+# completed with rows: 900 and errors: 0 for table drug_product!
+
+# completed with rows: 1500 and errors: 0 for table drug_product!
+
+# completed with rows: 1600 and errors: 0 for table drug_product!
+
+# completed with rows: 1700 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('644902941', '197500053', '', '', '', '', '139639BIJ')" and "139639BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('644902941', '197500053', '', '', '', '', '139639BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('644902961', '197500053', '', '', '', '', '139640BIJ')" and "139640BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('644902961', '197500053', '', '', '', '', '139640BIJ')" -> by setting the foreign key null
+
+# completed with rows: 4500 and errors: 0 for table drug_product!
+
+# completed with rows: 7100 and errors: 0 for table drug_product!
+
+# completed with rows: 7800 and errors: 0 for table drug_product!
+
+# completed with rows: 9700 and errors: 0 for table drug_product!
+
+# completed with rows: 10200 and errors: 0 for table drug_product!
+
+# completed with rows: 10700 and errors: 0 for table drug_product!
+
+# completed with rows: 10900 and errors: 0 for table drug_product!
+
+# completed with rows: 11000 and errors: 0 for table drug_product!
+
+# completed with rows: 11400 and errors: 0 for table drug_product!
+
+# completed with rows: 12900 and errors: 0 for table drug_product!
+
+# completed with rows: 13000 and errors: 0 for table drug_product!
+
+# completed with rows: 15400 and errors: 0 for table drug_product!
+
+# completed with rows: 16000 and errors: 0 for table drug_product!
+
+# completed with rows: 16100 and errors: 0 for table drug_product!
+
+# completed with rows: 17300 and errors: 0 for table drug_product!
+
+# completed with rows: 17600 and errors: 0 for table drug_product!
+
+# completed with rows: 17700 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('644304241', '199101477', 'D000449', '', '', '', '139630BIJ')" and "139630BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('644304241', '199101477', 'D000449', '', '', '', '139630BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('644302951', '199101496', '', '', '', '', '192146BIJ')" and "192146BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('644302951', '199101496', '', '', '', '', '192146BIJ')" -> by setting the foreign key null
+
+# completed with rows: 18100 and errors: 0 for table drug_product!
+
+# completed with rows: 19100 and errors: 0 for table drug_product!
+
+# completed with rows: 19200 and errors: 0 for table drug_product!
+
+# completed with rows: 19600 and errors: 0 for table drug_product!
+
+# completed with rows: 22700 and errors: 0 for table drug_product!
+
+# completed with rows: 22800 and errors: 0 for table drug_product!
+
+# completed with rows: 22900 and errors: 0 for table drug_product!
+
+# completed with rows: 23500 and errors: 0 for table drug_product!
+
+# completed with rows: 24000 and errors: 0 for table drug_product!
+
+# completed with rows: 25300 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('655605111', '199500227', 'DH00065', '', '', '', '107161BIJ')" and "107161BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('655605111', '199500227', 'DH00065', '', '', '', '107161BIJ')" -> by setting the foreign key null
+
+# completed with rows: 28000 and errors: 0 for table drug_product!
+
+# completed with rows: 28100 and errors: 0 for table drug_product!
+
+# completed with rows: 28600 and errors: 0 for table drug_product!
+
+# completed with rows: 29600 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642200061', '199504132', '', '', '', '', '248232BIJ')" and "248232BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642200061', '199504132', '', '', '', '', '248232BIJ')" -> by setting the foreign key null
+
+# completed with rows: 30000 and errors: 0 for table drug_product!
+
+# completed with rows: 30300 and errors: 0 for table drug_product!
+
+# completed with rows: 30600 and errors: 0 for table drug_product!
+
+# completed with rows: 31000 and errors: 0 for table drug_product!
+
+# completed with rows: 31400 and errors: 0 for table drug_product!
+
+# completed with rows: 32100 and errors: 0 for table drug_product!
+
+# completed with rows: 35300 and errors: 0 for table drug_product!
+
+# completed with rows: 35500 and errors: 0 for table drug_product!
+
+# completed with rows: 35800 and errors: 0 for table drug_product!
+
+# completed with rows: 37000 and errors: 0 for table drug_product!
+
+# completed with rows: 38400 and errors: 0 for table drug_product!
+
+# completed with rows: 38500 and errors: 0 for table drug_product!
+
+# completed with rows: 38600 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('655600151', '199800507', '', '', '', '', '675200BIJ')" and "675200BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('655600151', '199800507', '', '', '', '', '675200BIJ')" -> by setting the foreign key null
+
+# completed with rows: 41000 and errors: 0 for table drug_product!
+
+# completed with rows: 44500 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('653103391', '199902024', 'D000426', '', '', '', '194132CCM')" and "194132CCM"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('653103391', '199902024', 'D000426', '', '', '', '194132CCM')" -> by setting the foreign key null
+
+# completed with rows: 46100 and errors: 0 for table drug_product!
+
+# completed with rows: 47700 and errors: 0 for table drug_product!
+
+# completed with rows: 48500 and errors: 0 for table drug_product!
+
+# completed with rows: 48700 and errors: 0 for table drug_product!
+
+# completed with rows: 49200 and errors: 0 for table drug_product!
+
+# completed with rows: 51000 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('645305831', '200004293', 'D000995', 'D001039', '', '', '642200COS')" and "642200COS"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('645305831', '200004293', 'D000995', 'D001039', '', '', '642200COS')" -> by setting the foreign key null
+
+# completed with rows: 53200 and errors: 0 for table drug_product!
+
+# completed with rows: 53400 and errors: 0 for table drug_product!
+
+# completed with rows: 54100 and errors: 0 for table drug_product!
+
+# completed with rows: 54600 and errors: 0 for table drug_product!
+
+# completed with rows: 54900 and errors: 0 for table drug_product!
+
+# completed with rows: 57600 and errors: 0 for table drug_product!
+
+# completed with rows: 57800 and errors: 0 for table drug_product!
+
+# completed with rows: 58900 and errors: 0 for table drug_product!
+
+# completed with rows: 59000 and errors: 0 for table drug_product!
+
+# completed with rows: 59700 and errors: 0 for table drug_product!
+
+# completed with rows: 59800 and errors: 0 for table drug_product!
+
+# completed with rows: 59900 and errors: 0 for table drug_product!
+
+# completed with rows: 60100 and errors: 0 for table drug_product!
+
+# completed with rows: 60200 and errors: 0 for table drug_product!
+
+# completed with rows: 60300 and errors: 0 for table drug_product!
+
+# completed with rows: 60500 and errors: 0 for table drug_product!
+
+# completed with rows: 60600 and errors: 0 for table drug_product!
+
+# completed with rows: 60700 and errors: 0 for table drug_product!
+
+# completed with rows: 61200 and errors: 0 for table drug_product!
+
+# completed with rows: 61400 and errors: 0 for table drug_product!
+
+# completed with rows: 62200 and errors: 0 for table drug_product!
+
+# completed with rows: 62500 and errors: 0 for table drug_product!
+
+# completed with rows: 62900 and errors: 0 for table drug_product!
+
+# completed with rows: 63800 and errors: 0 for table drug_product!
+
+# completed with rows: 64900 and errors: 0 for table drug_product!
+
+# completed with rows: 65500 and errors: 0 for table drug_product!
+
+# completed with rows: 65600 and errors: 0 for table drug_product!
+
+# completed with rows: 66000 and errors: 0 for table drug_product!
+
+# completed with rows: 66800 and errors: 0 for table drug_product!
+
+# completed with rows: 67000 and errors: 0 for table drug_product!
+
+# completed with rows: 67500 and errors: 0 for table drug_product!
+
+# completed with rows: 68000 and errors: 0 for table drug_product!
+
+# completed with rows: 68700 and errors: 0 for table drug_product!
+
+# completed with rows: 69200 and errors: 0 for table drug_product!
+
+# completed with rows: 70900 and errors: 0 for table drug_product!
+
+# completed with rows: 71700 and errors: 0 for table drug_product!
+
+# completed with rows: 73700 and errors: 0 for table drug_product!
+
+# completed with rows: 74600 and errors: 0 for table drug_product!
+
+# completed with rows: 75600 and errors: 0 for table drug_product!
+
+# completed with rows: 77000 and errors: 0 for table drug_product!
+
+# completed with rows: 77800 and errors: 0 for table drug_product!
+
+# completed with rows: 77900 and errors: 0 for table drug_product!
+
+# completed with rows: 78100 and errors: 0 for table drug_product!
+
+# completed with rows: 79000 and errors: 0 for table drug_product!
+
+# completed with rows: 79500 and errors: 0 for table drug_product!
+
+# completed with rows: 80400 and errors: 0 for table drug_product!
+
+# completed with rows: 81700 and errors: 0 for table drug_product!
+
+# completed with rows: 82000 and errors: 0 for table drug_product!
+
+# completed with rows: 82200 and errors: 0 for table drug_product!
+
+# completed with rows: 83000 and errors: 0 for table drug_product!
+
+# completed with rows: 83300 and errors: 0 for table drug_product!
+
+# completed with rows: 83800 and errors: 0 for table drug_product!
+
+# completed with rows: 84000 and errors: 0 for table drug_product!
+
+# completed with rows: 84600 and errors: 0 for table drug_product!
+
+# completed with rows: 84700 and errors: 0 for table drug_product!
+
+# completed with rows: 85600 and errors: 0 for table drug_product!
+
+# completed with rows: 85700 and errors: 0 for table drug_product!
+
+# completed with rows: 85900 and errors: 0 for table drug_product!
+
+# completed with rows: 86100 and errors: 0 for table drug_product!
+
+# completed with rows: 87400 and errors: 0 for table drug_product!
+
+# completed with rows: 87900 and errors: 0 for table drug_product!
+
+# completed with rows: 88300 and errors: 0 for table drug_product!
+
+# completed with rows: 88500 and errors: 0 for table drug_product!
+
+# completed with rows: 88700 and errors: 0 for table drug_product!
+
+# completed with rows: 89600 and errors: 0 for table drug_product!
+
+# completed with rows: 90400 and errors: 0 for table drug_product!
+
+# completed with rows: 92900 and errors: 0 for table drug_product!
+
+# completed with rows: 93500 and errors: 0 for table drug_product!
+
+# completed with rows: 93800 and errors: 0 for table drug_product!
+
+# completed with rows: 94600 and errors: 0 for table drug_product!
+
+# completed with rows: 94900 and errors: 0 for table drug_product!
+
+# completed with rows: 96300 and errors: 0 for table drug_product!
+
+# completed with rows: 96400 and errors: 0 for table drug_product!
+
+# completed with rows: 96700 and errors: 0 for table drug_product!
+
+# completed with rows: 97000 and errors: 0 for table drug_product!
+
+# completed with rows: 97200 and errors: 0 for table drug_product!
+
+# completed with rows: 99100 and errors: 0 for table drug_product!
+
+# completed with rows: 99900 and errors: 0 for table drug_product!
+
+# completed with rows: 100300 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('678900781', '200601050', '', '', '', '', '228757BIJ')" and "228757BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('678900781', '200601050', '', '', '', '', '228757BIJ')" -> by setting the foreign key null
+
+# completed with rows: 101200 and errors: 0 for table drug_product!
+
+# completed with rows: 101500 and errors: 0 for table drug_product!
+
+# completed with rows: 101700 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('659600431', '200606207', '', '', '', '', '196531BIJ')" and "196531BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('659600431', '200606207', '', '', '', '', '196531BIJ')" -> by setting the foreign key null
+
+# completed with rows: 102100 and errors: 0 for table drug_product!
+
+# completed with rows: 102400 and errors: 0 for table drug_product!
+
+# completed with rows: 102900 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('625400013', '200607516', 'DH00125', '', '', '', '113949APD')" and "113949APD"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('625400013', '200607516', 'DH00125', '', '', '', '113949APD')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('625400031', '200607517', 'DH00125', '', '', '', '113936ASS')" and "113936ASS"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('625400031', '200607517', 'DH00125', '', '', '', '113936ASS')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('625400032', '200607517', 'DH00125', '', '', '', '113945ASS')" and "113945ASS"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('625400032', '200607517', 'DH00125', '', '', '', '113945ASS')" -> by setting the foreign key null
+
+# completed with rows: 103700 and errors: 0 for table drug_product!
+
+# completed with rows: 104700 and errors: 0 for table drug_product!
+
+# completed with rows: 105300 and errors: 0 for table drug_product!
+
+# completed with rows: 105900 and errors: 0 for table drug_product!
+
+# completed with rows: 106000 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('657400710', '200612693', '', '', '', '', '131321CDS')" and "131321CDS"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('657400710', '200612693', '', '', '', '', '131321CDS')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('657400720', '200612696', '', '', '', '', '216250CDS')" and "216250CDS"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('657400720', '200612696', '', '', '', '', '216250CDS')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('643601451', '200612719', 'DH00583', '', '', '', '363532BIJ')" and "363532BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('643601451', '200612719', 'DH00583', '', '', '', '363532BIJ')" -> by setting the foreign key null
+
+# completed with rows: 107300 and errors: 0 for table drug_product!
+
+# completed with rows: 107500 and errors: 0 for table drug_product!
+
+# completed with rows: 108200 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('679700141', '200702510', '', '', '', '', '181403BIJ')" and "181403BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('679700141', '200702510', '', '', '', '', '181403BIJ')" -> by setting the foreign key null
+
+# completed with rows: 109200 and errors: 0 for table drug_product!
+
+# completed with rows: 109500 and errors: 0 for table drug_product!
+
+# completed with rows: 110000 and errors: 0 for table drug_product!
+
+# completed with rows: 110200 and errors: 0 for table drug_product!
+
+# completed with rows: 111000 and errors: 0 for table drug_product!
+
+# completed with rows: 111200 and errors: 0 for table drug_product!
+
+# completed with rows: 111600 and errors: 0 for table drug_product!
+
+# completed with rows: 112400 and errors: 0 for table drug_product!
+
+# completed with rows: 113700 and errors: 0 for table drug_product!
+
+# completed with rows: 114800 and errors: 0 for table drug_product!
+
+# completed with rows: 115100 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('653602561', '200708787', '', '', '', '', '503631BIJ')" and "503631BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('653602561', '200708787', '', '', '', '', '503631BIJ')" -> by setting the foreign key null
+
+# completed with rows: 116500 and errors: 0 for table drug_product!
+
+# completed with rows: 116800 and errors: 0 for table drug_product!
+
+# completed with rows: 117100 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('650700552', '200711211', '', '', '', '', '568931BIJ')" and "568931BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('650700552', '200711211', '', '', '', '', '568931BIJ')" -> by setting the foreign key null
+
+# completed with rows: 118300 and errors: 0 for table drug_product!
+
+# completed with rows: 118900 and errors: 0 for table drug_product!
+
+# completed with rows: 119700 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('678000441', '200801091', 'D000583', '', '', '', '575630BIJ')" and "575630BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('678000441', '200801091', 'D000583', '', '', '', '575630BIJ')" -> by setting the foreign key null
+
+# completed with rows: 122900 and errors: 0 for table drug_product!
+
+# completed with rows: 123000 and errors: 0 for table drug_product!
+
+# completed with rows: 123100 and errors: 0 for table drug_product!
+
+# completed with rows: 123200 and errors: 0 for table drug_product!
+
+# completed with rows: 123300 and errors: 0 for table drug_product!
+
+# completed with rows: 123500 and errors: 0 for table drug_product!
+
+# completed with rows: 123800 and errors: 0 for table drug_product!
+
+# completed with rows: 125700 and errors: 0 for table drug_product!
+
+# completed with rows: 125900 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('649505001', '200805975', '', '', '', '', '228651COS')" and "228651COS"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('649505001', '200805975', '', '', '', '', '228651COS')" -> by setting the foreign key null
+
+# completed with rows: 127400 and errors: 0 for table drug_product!
+
+# completed with rows: 127600 and errors: 0 for table drug_product!
+
+# completed with rows: 127900 and errors: 0 for table drug_product!
+
+# completed with rows: 128000 and errors: 0 for table drug_product!
+
+# completed with rows: 129000 and errors: 0 for table drug_product!
+
+# completed with rows: 129500 and errors: 0 for table drug_product!
+
+# completed with rows: 129800 and errors: 0 for table drug_product!
+
+# completed with rows: 131800 and errors: 0 for table drug_product!
+
+# completed with rows: 132400 and errors: 0 for table drug_product!
+
+# completed with rows: 134400 and errors: 0 for table drug_product!
+
+# completed with rows: 134800 and errors: 0 for table drug_product!
+
+# completed with rows: 135900 and errors: 0 for table drug_product!
+
+# completed with rows: 136000 and errors: 0 for table drug_product!
+
+# completed with rows: 136100 and errors: 0 for table drug_product!
+
+# completed with rows: 136400 and errors: 0 for table drug_product!
+
+# completed with rows: 136700 and errors: 0 for table drug_product!
+
+# completed with rows: 136900 and errors: 0 for table drug_product!
+
+# completed with rows: 137100 and errors: 0 for table drug_product!
+
+# completed with rows: 137400 and errors: 0 for table drug_product!
+
+# completed with rows: 137700 and errors: 0 for table drug_product!
+
+# completed with rows: 138200 and errors: 0 for table drug_product!
+
+# completed with rows: 138400 and errors: 0 for table drug_product!
+
+# completed with rows: 139800 and errors: 0 for table drug_product!
+
+# completed with rows: 140000 and errors: 0 for table drug_product!
+
+# completed with rows: 140300 and errors: 0 for table drug_product!
+
+# completed with rows: 140900 and errors: 0 for table drug_product!
+
+# completed with rows: 141600 and errors: 0 for table drug_product!
+
+# completed with rows: 142800 and errors: 0 for table drug_product!
+
+# completed with rows: 142900 and errors: 0 for table drug_product!
+
+# completed with rows: 143700 and errors: 0 for table drug_product!
+
+# completed with rows: 144400 and errors: 0 for table drug_product!
+
+# completed with rows: 144700 and errors: 0 for table drug_product!
+
+# completed with rows: 145700 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('649506761', '201100944', 'D000160', '', '', '', '391740COS')" and "391740COS"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('649506761', '201100944', 'D000160', '', '', '', '391740COS')" -> by setting the foreign key null
+
+# completed with rows: 146900 and errors: 0 for table drug_product!
+
+# completed with rows: 147400 and errors: 0 for table drug_product!
+
+# completed with rows: 148800 and errors: 0 for table drug_product!
+
+# completed with rows: 149500 and errors: 0 for table drug_product!
+
+# completed with rows: 149900 and errors: 0 for table drug_product!
+
+# completed with rows: 150700 and errors: 0 for table drug_product!
+
+# completed with rows: 151500 and errors: 0 for table drug_product!
+
+# completed with rows: 152000 and errors: 0 for table drug_product!
+
+# completed with rows: 153100 and errors: 0 for table drug_product!
+
+# completed with rows: 153400 and errors: 0 for table drug_product!
+
+# completed with rows: 154100 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('641805171', '201205962', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('641805171', '201205962', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('678000241', '201206084', '', '', '', '', '620630BIJ')" and "620630BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('678000241', '201206084', '', '', '', '', '620630BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('678000251', '201206084', '', '', '', '', '620631BIJ')" and "620631BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('678000251', '201206084', '', '', '', '', '620631BIJ')" -> by setting the foreign key null
+
+# completed with rows: 155200 and errors: 0 for table drug_product!
+
+# completed with rows: 155300 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('661305021', '201206825', 'H675600', '', '', '', '675600ALQ')" and "675600ALQ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('661305021', '201206825', 'H675600', '', '', '', '675600ALQ')" -> by setting the foreign key null
+
+# completed with rows: 156400 and errors: 0 for table drug_product!
+
+# completed with rows: 156500 and errors: 0 for table drug_product!
+
+# completed with rows: 156900 and errors: 0 for table drug_product!
+
+# completed with rows: 157900 and errors: 0 for table drug_product!
+
+# completed with rows: 159200 and errors: 0 for table drug_product!
+
+# completed with rows: 159300 and errors: 0 for table drug_product!
+
+# completed with rows: 159400 and errors: 0 for table drug_product!
+
+# completed with rows: 160100 and errors: 0 for table drug_product!
+
+# completed with rows: 160300 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('650103201', '201306498', '', '', '', '', '161246COS')" and "161246COS"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('650103201', '201306498', '', '', '', '', '161246COS')" -> by setting the foreign key null
+
+# completed with rows: 160900 and errors: 0 for table drug_product!
+
+# completed with rows: 162300 and errors: 0 for table drug_product!
+
+# completed with rows: 162400 and errors: 0 for table drug_product!
+
+# completed with rows: 162500 and errors: 0 for table drug_product!
+
+# completed with rows: 162700 and errors: 0 for table drug_product!
+
+# completed with rows: 163200 and errors: 0 for table drug_product!
+
+# completed with rows: 164100 and errors: 0 for table drug_product!
+
+# completed with rows: 164700 and errors: 0 for table drug_product!
+
+# completed with rows: 166000 and errors: 0 for table drug_product!
+
+# completed with rows: 166500 and errors: 0 for table drug_product!
+
+# completed with rows: 166600 and errors: 0 for table drug_product!
+
+# completed with rows: 167100 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670606711', '201310948', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670606711', '201310948', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+
+# completed with rows: 169400 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670400521', '201400968', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670400521', '201400968', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+
+# completed with rows: 169900 and errors: 0 for table drug_product!
+
+# completed with rows: 170900 and errors: 0 for table drug_product!
+
+# completed with rows: 171500 and errors: 0 for table drug_product!
+
+# completed with rows: 172200 and errors: 0 for table drug_product!
+
+# completed with rows: 172500 and errors: 0 for table drug_product!
+
+# completed with rows: 172700 and errors: 0 for table drug_product!
+
+# completed with rows: 172800 and errors: 0 for table drug_product!
+
+# completed with rows: 173300 and errors: 0 for table drug_product!
+
+# completed with rows: 173800 and errors: 0 for table drug_product!
+
+# completed with rows: 173900 and errors: 0 for table drug_product!
+
+# completed with rows: 174000 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('629000011', '201403514', 'D000550', '', '', '', '675301BIJ')" and "675301BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('629000011', '201403514', 'D000550', '', '', '', '675301BIJ')" -> by setting the foreign key null
+
+# completed with rows: 174800 and errors: 0 for table drug_product!
+
+# completed with rows: 175600 and errors: 0 for table drug_product!
+
+# completed with rows: 176100 and errors: 0 for table drug_product!
+
+# completed with rows: 176400 and errors: 0 for table drug_product!
+
+# completed with rows: 177100 and errors: 0 for table drug_product!
+
+# completed with rows: 177900 and errors: 0 for table drug_product!
+
+# completed with rows: 178300 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658700631', '201405769', 'D001029', '', '', '', '633331BIJ')" and "633331BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658700631', '201405769', 'D001029', '', '', '', '633331BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658700641', '201405770', 'D001029', '', '', '', '633330BIJ')" and "633330BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658700641', '201405770', 'D001029', '', '', '', '633330BIJ')" -> by setting the foreign key null
+
+# completed with rows: 179200 and errors: 0 for table drug_product!
+
+# completed with rows: 179600 and errors: 0 for table drug_product!
+
+# completed with rows: 179800 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('050000011', '201500388', '', '', '', '', '620231BIJ')" and "620231BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('050000011', '201500388', '', '', '', '', '620231BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('050000021', '201500389', '', '', '', '', '620233BIJ')" and "620233BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('050000021', '201500389', '', '', '', '', '620233BIJ')" -> by setting the foreign key null
+
+# completed with rows: 180600 and errors: 0 for table drug_product!
+
+# completed with rows: 180700 and errors: 0 for table drug_product!
+
+# completed with rows: 181400 and errors: 0 for table drug_product!
+
+# completed with rows: 181500 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('640006901', '201501028', 'D000303', '', '', '', '481236BIJ')" and "481236BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('640006901', '201501028', 'D000303', '', '', '', '481236BIJ')" -> by setting the foreign key null
+
+# completed with rows: 182000 and errors: 0 for table drug_product!
+
+# completed with rows: 182100 and errors: 0 for table drug_product!
+
+# completed with rows: 183000 and errors: 0 for table drug_product!
+
+# completed with rows: 183700 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642306621', '201502586', '', '', '', '', '638730BIJ')" and "638730BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642306621', '201502586', '', '', '', '', '638730BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('050800381', '201502643', 'DH00583', '', '', '', '363532BIJ')" and "363532BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('050800381', '201502643', 'DH00583', '', '', '', '363532BIJ')" -> by setting the foreign key null
+
+# completed with rows: 184700 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('669906221', '201503141', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('669906221', '201503141', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('669906961', '201503141', '', '', '', '', '620232BIJ')" and "620232BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('669906961', '201503141', '', '', '', '', '620232BIJ')" -> by setting the foreign key null
+
+# completed with rows: 185800 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('669804651', '201503316', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('669804651', '201503316', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('669804701', '201503316', '', '', '', '', '620232BIJ')" and "620232BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('669804701', '201503316', '', '', '', '', '620232BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('669804711', '201503316', '', '', '', '', '620234BIJ')" and "620234BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('669804711', '201503316', '', '', '', '', '620234BIJ')" -> by setting the foreign key null
+
+# completed with rows: 186900 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('655604721', '201504130', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('655604721', '201504130', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('681100191', '201504236', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('681100191', '201504236', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+
+# completed with rows: 188000 and errors: 0 for table drug_product!
+
+# completed with rows: 188200 and errors: 0 for table drug_product!
+
+# completed with rows: 188500 and errors: 0 for table drug_product!
+
+# completed with rows: 188700 and errors: 0 for table drug_product!
+
+# completed with rows: 189000 and errors: 0 for table drug_product!
+
+# completed with rows: 190000 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('643507401', '201506664', 'D000799', '', '', '', '219907ALQ')" and "219907ALQ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('643507401', '201506664', 'D000799', '', '', '', '219907ALQ')" -> by setting the foreign key null
+
+# completed with rows: 190400 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('654802251', '201507119', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('654802251', '201507119', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('651601931', '201507198', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('651601931', '201507198', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('645404681', '201507199', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('645404681', '201507199', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+
+# completed with rows: 191200 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('647804381', '201507451', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('647804381', '201507451', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+
+# completed with rows: 191700 and errors: 0 for table drug_product!
+
+# completed with rows: 193300 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670607421', '201600527', '', '', '', '', '620233BIJ')" and "620233BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670607421', '201600527', '', '', '', '', '620233BIJ')" -> by setting the foreign key null
+
+# completed with rows: 193800 and errors: 0 for table drug_product!
+
+# completed with rows: 193900 and errors: 0 for table drug_product!
+
+# completed with rows: 194800 and errors: 0 for table drug_product!
+
+# completed with rows: 195600 and errors: 0 for table drug_product!
+
+# completed with rows: 195800 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('645906061', '201602190', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('645906061', '201602190', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('648507581', '201602241', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('648507581', '201602241', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+
+# completed with rows: 196300 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('679700391', '201602437', '', '', '', '', '620231BIJ')" and "620231BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('679700391', '201602437', '', '', '', '', '620231BIJ')" -> by setting the foreign key null
+
+# completed with rows: 196400 and errors: 0 for table drug_product!
+
+# completed with rows: 196500 and errors: 0 for table drug_product!
+
+# completed with rows: 196600 and errors: 0 for table drug_product!
+
+# completed with rows: 196700 and errors: 0 for table drug_product!
+
+# completed with rows: 197000 and errors: 0 for table drug_product!
+
+# completed with rows: 197200 and errors: 0 for table drug_product!
+
+# completed with rows: 197300 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642104871', '201602929', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642104871', '201602929', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+
+# completed with rows: 197500 and errors: 0 for table drug_product!
+
+# completed with rows: 197600 and errors: 0 for table drug_product!
+
+# completed with rows: 198500 and errors: 0 for table drug_product!
+
+# completed with rows: 199500 and errors: 0 for table drug_product!
+
+# completed with rows: 199800 and errors: 0 for table drug_product!
+
+# completed with rows: 200400 and errors: 0 for table drug_product!
+
+# completed with rows: 200600 and errors: 0 for table drug_product!
+
+# completed with rows: 201400 and errors: 0 for table drug_product!
+
+# completed with rows: 201900 and errors: 0 for table drug_product!
+
+# completed with rows: 202600 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('671705272', '201604890', 'D000127', '', '', '', '195932COM')" and "195932COM"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('671705272', '201604890', 'D000127', '', '', '', '195932COM')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('671705273', '201604890', 'D000127', '', '', '', '195933COM')" and "195933COM"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('671705273', '201604890', 'D000127', '', '', '', '195933COM')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('641606291', '201604991', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('641606291', '201604991', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+
+# completed with rows: 203100 and errors: 0 for table drug_product!
+
+# completed with rows: 203200 and errors: 0 for table drug_product!
+
+# completed with rows: 203300 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('650303561', '201605469', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('650303561', '201605469', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('645604801', '201605495', '', '', '', '', '207837ALQ')" and "207837ALQ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('645604801', '201605495', '', '', '', '', '207837ALQ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('645604802', '201605495', '', '', '', '', '207838ALQ')" and "207838ALQ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('645604802', '201605495', '', '', '', '', '207838ALQ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('645604803', '201605495', '', '', '', '', '207839ALQ')" and "207839ALQ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('645604803', '201605495', '', '', '', '', '207839ALQ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('652903891', '201605496', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('652903891', '201605496', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+
+# completed with rows: 203600 and errors: 0 for table drug_product!
+
+# completed with rows: 204100 and errors: 0 for table drug_product!
+
+# completed with rows: 204200 and errors: 0 for table drug_product!
+
+# completed with rows: 204300 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658700701', '201606602', 'D000062', '', '', '', '656830BIJ')" and "656830BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658700701', '201606602', 'D000062', '', '', '', '656830BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658700691', '201606603', 'D001029', '', '', '', '656831BIJ')" and "656831BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658700691', '201606603', 'D001029', '', '', '', '656831BIJ')" -> by setting the foreign key null
+
+# completed with rows: 205200 and errors: 0 for table drug_product!
+
+# completed with rows: 205600 and errors: 0 for table drug_product!
+
+# completed with rows: 205800 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('653603131', '201607376', '', '', '', '', '503632BIJ')" and "503632BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('653603131', '201607376', '', '', '', '', '503632BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('650204761', '201700134', '', '', '', '', '620233BIJ')" and "620233BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('650204761', '201700134', '', '', '', '', '620233BIJ')" -> by setting the foreign key null
+
+# completed with rows: 206100 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('669907081', '201700542', '', '', '', '', '620233BIJ')" and "620233BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('669907081', '201700542', '', '', '', '', '620233BIJ')" -> by setting the foreign key null
+
+# completed with rows: 206700 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('698503841', '201700872', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('698503841', '201700872', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+
+# completed with rows: 207000 and errors: 0 for table drug_product!
+
+# completed with rows: 207900 and errors: 0 for table drug_product!
+
+# completed with rows: 208300 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('648103901', '201702092', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('648103901', '201702092', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('648204041', '201702643', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('648204041', '201702643', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670304164', '201704561', '', '', '', '', '358911ASS')" and "358911ASS"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670304164', '201704561', '', '', '', '', '358911ASS')" -> by setting the foreign key null
+
+# completed with rows: 209900 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642905941', '201705734', '', '', '', '', 'E15200COM')" and "E15200COM"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642905941', '201705734', '', '', '', '', 'E15200COM')" -> by setting the foreign key null
+
+# completed with rows: 210600 and errors: 0 for table drug_product!
+
+# completed with rows: 211500 and errors: 0 for table drug_product!
+
+# completed with rows: 211600 and errors: 0 for table drug_product!
+
+# completed with rows: 211800 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('653403901', '201707145', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('653403901', '201707145', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642905950', '201707223', '', '', '', '', 'E15300CSP')" and "E15300CSP"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642905950', '201707223', '', '', '', '', 'E15300CSP')" -> by setting the foreign key null
+
+# completed with rows: 212000 and errors: 0 for table drug_product!
+
+# completed with rows: 212600 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('654004951', '201707883', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('654004951', '201707883', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+
+# completed with rows: 213000 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('659701021', '201708376', 'D000124', '', '', '', '192804BIJ')" and "192804BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('659701021', '201708376', 'D000124', '', '', '', '192804BIJ')" -> by setting the foreign key null
+
+# completed with rows: 214300 and errors: 0 for table drug_product!
+
+# completed with rows: 214400 and errors: 0 for table drug_product!
+
+# completed with rows: 214500 and errors: 0 for table drug_product!
+
+# completed with rows: 215000 and errors: 0 for table drug_product!
+
+# completed with rows: 215500 and errors: 0 for table drug_product!
+
+# completed with rows: 215600 and errors: 0 for table drug_product!
+
+# completed with rows: 216200 and errors: 0 for table drug_product!
+
+# completed with rows: 216300 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('646902251', '201801521', '', '', '', '', '615032BIJ')" and "615032BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('646902251', '201801521', '', '', '', '', '615032BIJ')" -> by setting the foreign key null
+
+# completed with rows: 216400 and errors: 0 for table drug_product!
+
+# completed with rows: 217300 and errors: 0 for table drug_product!
+
+# completed with rows: 217600 and errors: 0 for table drug_product!
+
+# completed with rows: 217900 and errors: 0 for table drug_product!
+
+# completed with rows: 218200 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('640007280', '201802685', 'DH01516', 'DH00897', '', '', '674900ACH')" and "674900ACH"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('640007280', '201802685', 'DH01516', 'DH00897', '', '', '674900ACH')" -> by setting the foreign key null
+
+# completed with rows: 218400 and errors: 0 for table drug_product!
+
+# completed with rows: 218500 and errors: 0 for table drug_product!
+
+# completed with rows: 218600 and errors: 0 for table drug_product!
+
+# completed with rows: 218800 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670304280', '201803111', 'D000895', '', '', '', 'A27002ATD')" and "A27002ATD"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670304280', '201803111', 'D000895', '', '', '', 'A27002ATD')" -> by setting the foreign key null
+
+# completed with rows: 219200 and errors: 0 for table drug_product!
+
+# completed with rows: 219300 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('668000150', '201803579', '', '', '', '', '625202ATB')" and "625202ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('668000150', '201803579', '', '', '', '', '625202ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('655502020', '201803605', 'DH01517', 'D000244', '', '', '675000ATB')" and "675000ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('655502020', '201803605', 'DH01517', 'D000244', '', '', '675000ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('655502000', '201803606', 'DH01517', 'D000244', '', '', '675100ATB')" and "675100ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('655502000', '201803606', 'DH01517', 'D000244', '', '', '675100ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('647205270', '201803650', '', '', '', '', 'E14800ATB')" and "E14800ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('647205270', '201803650', '', '', '', '', 'E14800ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642105251', '201803664', '', '', '', '', 'E14400ALQ')" and "E14400ALQ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642105251', '201803664', '', '', '', '', 'E14400ALQ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('647205280', '201803716', '', '', '', '', 'E14500ATB')" and "E14500ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('647205280', '201803716', '', '', '', '', 'E14500ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('643508051', '201803753', '', '', '', '', 'E14600CLQ')" and "E14600CLQ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('643508051', '201803753', '', '', '', '', 'E14600CLQ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('628901120', '201803763', '', '', '', '', 'E14700AGN')" and "E14700AGN"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('628901120', '201803763', '', '', '', '', 'E14700AGN')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670608051', '201803821', '', '', '', '', 'E14200ASY')" and "E14200ASY"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670608051', '201803821', '', '', '', '', 'E14200ASY')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670608061', '201803822', '', '', '', '', 'E14300ASY')" and "E14300ASY"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670608061', '201803822', '', '', '', '', 'E14300ASY')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670402131', '201803885', '', '', '', '', 'E14200ASY')" and "E14200ASY"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670402131', '201803885', '', '', '', '', 'E14200ASY')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670402121', '201803886', '', '', '', '', 'E14300ASY')" and "E14300ASY"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670402121', '201803886', '', '', '', '', 'E14300ASY')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('651904650', '201803903', '', '', '', '', '105507ATB')" and "105507ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('651904650', '201803903', '', '', '', '', '105507ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670304290', '201803906', '', '', '', '', 'E15100ACS')" and "E15100ACS"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('670304290', '201803906', '', '', '', '', 'E15100ACS')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('648104130', '201803985', '', '', '', '', '675401ATB')" and "675401ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('648104130', '201803985', '', '', '', '', '675401ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('648104140', '201803986', '', '', '', '', '675402ATB')" and "675402ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('648104140', '201803986', '', '', '', '', '675402ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('696601841', '201804031', '', '', '', '', '399202CCM')" and "399202CCM"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('696601841', '201804031', '', '', '', '', '399202CCM')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('053500151', '201804150', '', '', '', '', '123204CCM')" and "123204CCM"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('053500151', '201804150', '', '', '', '', '123204CCM')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('655006841', '201804157', '', '', '', '', 'E15000ALQ')" and "E15000ALQ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('655006841', '201804157', '', '', '', '', 'E15000ALQ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642706610', '201804185', '', '', '', '', '137503ATB')" and "137503ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642706610', '201804185', '', '', '', '', '137503ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642204360', '201804237', 'DH00701', '', '', '', '183606ATB')" and "183606ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642204360', '201804237', 'DH00701', '', '', '', '183606ATB')" -> by setting the foreign key null
+
+# completed with rows: 220500 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('698003951', '201804264', '', '', '', '', '401638COS')" and "401638COS"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('698003951', '201804264', '', '', '', '', '401638COS')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('643903652', '201804301', 'DH00406', 'D000684', '', '', '538400COS')" and "538400COS"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('643903652', '201804301', 'DH00406', 'D000684', '', '', '538400COS')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('696300510', '201804317', '', '', '', '', '675500ATB')" and "675500ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('696300510', '201804317', '', '', '', '', '675500ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('052400841', '201804325', '', '', '', '', 'E14900AGN')" and "E14900AGN"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('052400841', '201804325', '', '', '', '', 'E14900AGN')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('626501231', '201804368', 'DH00778', 'D000493', 'D000933', '', 'E15500ALQ')" and "E15500ALQ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('626501231', '201804368', 'DH00778', 'D000493', 'D000933', '', 'E15500ALQ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642803140', '201804378', 'D000147', 'HE15800', '', '', 'E15800ACH')" and "E15800ACH"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642803140', '201804378', 'D000147', 'HE15800', '', '', 'E15800ACH')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658204151', '201804396', '', '', '', '', '620230BIJ')" and "620230BIJ"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658204151', '201804396', '', '', '', '', '620230BIJ')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('671705751', '201804413', 'D000363', 'N999999', '', '', 'E15400CCM')" and "E15400CCM"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('671705751', '201804413', 'D000363', 'N999999', '', '', 'E15400CCM')" -> by setting the foreign key null
+
+# completed with rows: 220800 and errors: 0 for table drug_product!
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642706630', '201804474', 'D000180', '', '', '', '137504ATB')" and "137504ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642706630', '201804474', 'D000180', '', '', '', '137504ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642803150', '201804518', 'HE15900', '', '', '', 'E15900ATB')" and "E15900ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('642803150', '201804518', 'HE15900', '', '', '', 'E15900ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('679700450', '201804551', 'D000987', '', '', '', 'D07906ATB')" and "D07906ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('679700450', '201804551', 'D000987', '', '', '', 'D07906ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('622701050', '201804566', 'D000506', '', '', '', '143513CPL')" and "143513CPL"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('622701050', '201804566', 'D000506', '', '', '', '143513CPL')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('644805551', '201804568', 'DH01259', '', '', '', '246137CCM')" and "246137CCM"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('644805551', '201804568', 'DH01259', '', '', '', '246137CCM')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('671806761', '201804569', 'DH01102', '', '', '', '228758CSI')" and "228758CSI"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('671806761', '201804569', 'DH01102', '', '', '', '228758CSI')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658106260', '201804619', 'D000147', 'HE15700', '', '', 'E15700ATB')" and "E15700ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658106260', '201804619', 'D000147', 'HE15700', '', '', 'E15700ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658106270', '201804836', 'H300600', '', '', '', '300600ATB')" and "300600ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658106270', '201804836', 'H300600', '', '', '', '300600ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658106280', '201804837', 'HE15600', '', '', '', 'E15600ACS')" and "E15600ACS"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('658106280', '201804837', 'HE15600', '', '', '', 'E15600ACS')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('696300520', '201804846', 'DH01518', '', '', '', '675701ATB')" and "675701ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('696300520', '201804846', 'DH01518', '', '', '', '675701ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('696300530', '201804847', 'DH01518', '', '', '', '675702ATB')" and "675702ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('696300530', '201804847', 'DH01518', '', '', '', '675702ATB')" -> by setting the foreign key null
+# 1-db fk error: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('696300540', '201804848', 'DH01518', '', '', '', '675703ATB')" and "675703ATB"
+# 0-fk warning: "INSERT INTO drug_product (prod_code, reg_code_id, durcode1, durcode2, durcode3, durcode4, ing_code_id) VALUES ('696300540', '201804848', 'DH01518', '', '', '', '675703ATB')" -> by setting the foreign key null
+
+# completed with rows: 223171 and errors: 0 for table drug_product!

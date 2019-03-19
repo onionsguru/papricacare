@@ -8,10 +8,10 @@ class DrugInline(admin.TabularInline):
     extra = 2
 '''
 class ProductAdmin(admin.ModelAdmin):
-    # PROD_CODE    REG_CODE    ING_CODE
-    list_display = ('prod_code', 'reg_code', 'ing_code')
+    # PROD_CODE    REG_CODE    ING_CODE    durcode1 .. durcode4
+    list_display = ('prod_code', 'reg_code', 'ing_code', 'durcode1', 'durcode2', 'durcode3', 'durcode4')
     list_filter = []
-    search_fields = ['prod_code']
+    search_fields = ['prod_code', 'reg_code', 'ing_code', 'durcode1', 'durcode2', 'durcode3', 'durcode4']
     
 class RegistrationAdmin(admin.ModelAdmin):
     # REG_CODE    ING_CODE    DRUG_NAME    DRUG_CLASS    STORAGE    EXP_DATE    ATTATCH    LOOK    MANUFAC_ID    MANUFACTURER    IMG_FILE
@@ -27,9 +27,9 @@ class IngredientAdmin(admin.ModelAdmin):
     search_fields = ['ing_code']
     
 class IngreFormAdmin(admin.ModelAdmin):
-    # ING_FORM_ID    ING_NAME_ENG    ING_NAME_KR    FORM    DESC_ID    NOTE    ING_ID
-    list_display = ('ing_form_id', 'ing_name_eng', 'ing_name_kr', 'form', 'desc_id', 'note', 'ing_id' )
-    list_filter = ['form']
+    # ING_FORM_ID    ING_NAME_ENG    ING_NAME_KR    FORM    DESC_ID    NOTE    ING_ID    CODE
+    list_display = ('ing_form_id', 'ing_name_eng', 'ing_name_kr', 'form', 'desc_id', 'note', 'ing_id', 'code' )
+    list_filter = ['form', 'code']
     search_fields = ['ing_form_id', 'ing_name_eng', 'ing_name_kr']
     
 class IngreDescAdmin(admin.ModelAdmin):

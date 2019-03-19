@@ -61,6 +61,7 @@ def read_tsv(tsv_file, table_name, postgre_conn):
     while line:
         line = line.replace('\n', '')
         attrs = line.split('\t') # list of strings
+        t_attrs = attrs
         attrs_alt = list(attrs)
         attrs_alt[-1] = 'NULL'
         attrs = list2parstr(attrs, "'")
@@ -68,12 +69,14 @@ def read_tsv(tsv_file, table_name, postgre_conn):
         ins_sql = 'INSERT INTO {} {} VALUES {}'.format(table_name, cols, attrs )
         ins_sql_alt = 'INSERT INTO {} {} VALUES {}'.format(table_name, cols, attrs_alt )
         #print(f'{ins_sql}') 
-        print('.',end='',flush=True),       
         
         try:
             cur.execute(ins_sql)
             row_cnt += 1
             postgre_conn.commit()
+            if row_cnt % 100 == 0:
+                print(f'\n# completed with rows: {row_cnt} and errors: {err_cnt} for table {table_name}!')
+                 
         except psycopg2.IntegrityError as detail:
             postgre_conn.rollback()
             err_cnt += 1
@@ -81,13 +84,15 @@ def read_tsv(tsv_file, table_name, postgre_conn):
             if 'duplicate key' in detail.args[0]: # duplicated pk
                 print(f'# {err_cnt}-pk error: "{ins_sql}"')
             elif 'foreign key' in detail.args[0]: # no matched fk
-                # print(f'# {err_cnt}-db fk error: "{ins_sql}"')
+                if t_attrs[-1] != '':
+                    print(f'# {err_cnt}-db fk error: "{ins_sql}" and "{t_attrs[-1]}"')
                 try:
                     cur.execute(ins_sql_alt)
                     postgre_conn.commit()
                     row_cnt += 1 
                     err_cnt -= 1
-                    print(f'# {err_cnt}-fk warning: "{ins_sql}" -> by setting the foreign key null')
+                    if t_attrs[-1] != '':
+                        print(f'# {err_cnt}-fk warning: "{ins_sql}" -> by setting the foreign key null')
                 except psycopg2.IntegrityError as detail:
                     postgre_conn.rollback()
                     if 'forein key' in detail.args[0]: # no present fk
@@ -99,9 +104,11 @@ def read_tsv(tsv_file, table_name, postgre_conn):
             err_cnt += 1
             if 'aborted' in detail.args[0]: # duplicated pk
                 print(f'# {err_cnt}-db aborted error: "{ins_sql}"')
+            else:
+                print(f'# {err_cnt}-unhandled internal error: "{ins_sql}"')
 
         line = fi.readline()
-
+       
     print(f'\n# completed with rows: {row_cnt} and errors: {err_cnt} for table {table_name}!')
 
 conn = psycopg2.connect(database="papricacaredbmin", user = "onions", 
@@ -109,19 +116,21 @@ conn = psycopg2.connect(database="papricacaredbmin", user = "onions",
 
 if conn:
     cur = conn.cursor()
+  
     cur.execute('delete from drug_ingredesc')
+    cur.execute('delete from drug_registration')
     cur.execute('delete from drug_ingreform')
     cur.execute('delete from drug_ingredient')
-    cur.execute('delete from drug_registration')
     cur.execute('delete from drug_product')
     conn.commit()
     print('# all rows deleted!')
-    
-    read_tsv('DESC.tsv', 'drug_ingredesc', conn)
-    read_tsv('REG.tsv', 'drug_registration', conn)
-    read_tsv('ING_FORM.tsv', 'drug_ingreform', conn)
-    read_tsv('ING.tsv', 'drug_ingredient', conn)
-    read_tsv('PROD.tsv', 'drug_product', conn)
+
+    read_tsv('DESC_ID.tsv', 'drug_ingredesc', conn)
+    read_tsv('REG_CODE.tsv', 'drug_registration', conn)
+    read_tsv('ING_FORM_ID.tsv', 'drug_ingreform', conn)
+    read_tsv('ING_CODE.tsv', 'drug_ingredient', conn)
+ 
+    read_tsv('PROD_CODE.tsv', 'drug_product', conn)
     if conn.close():
         print('# all completed!')
 else:
