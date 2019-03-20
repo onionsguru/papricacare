@@ -143,7 +143,7 @@ def process(attr):
     draw = ImageDraw.Draw(im)
     
     for p in privacies:
-        draw.rectangle(xy=p,outline='red', fill=None)
+        draw.rectangle(xy=p,outline='red', fill='red')
     output = '.safe.png'
     im.save(output)
     
