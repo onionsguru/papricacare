@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'rest_framework',
     'ocr.apps.OcrConfig',
+    'hospital',
 ]
 
 MIDDLEWARE = [
@@ -97,7 +98,7 @@ run_message = run_message + f'Postgre run at "{db_endpoint}">'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'papricacaredb',
+    'NAME': 'papricacare',
     'USER': 'onions',
     'PASSWORD': 'onions2018',
     'HOST': db_endpoint,
