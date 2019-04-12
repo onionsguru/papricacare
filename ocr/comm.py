@@ -29,15 +29,15 @@ class OcrChannel(AsyncWebsocketConsumer):
     # Receive message from WebSocket
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)
+        message = None
         try:
-            message = text_data_json['message']
             attr = text_data_json['attr']
             if attr['img_src'] != '#' and \
                  (attr['is_privacy'] or attr['is_num'] or attr['is_char'] or\
                  attr['is_drug'] or attr['is_disease'] or attr['is_hosp']):
                 (candidates, attr['img_src']) = ocr.process(attr)
                 if attr['is_drug']:
-                    message = message + f'<div style="color:red;">{len(candidates)} extracted: ' + str(candidates) +'</div>'
+                    message = str(candidates)
         except KeyError as detail:
             message = 'a wrong request' + detail.args[0] 
             attr = dict()
@@ -45,7 +45,6 @@ class OcrChannel(AsyncWebsocketConsumer):
             text_data_json['attr']['img_src'] = '#'
             print(f'# error of {message}: "{text_data_json}"')
                          
-        
         # Send message to room group
         await self.channel_layer.group_send(
             self.room_group_id,
@@ -58,11 +57,9 @@ class OcrChannel(AsyncWebsocketConsumer):
          
     # Receive message from room group
     async def ocr_message(self, event):
-        message = event['message']
-        img_src = event['img_src']
-
         # Send message to WebSocket
-        await self.send(text_data=json.dumps({
-            'message': message,
-            'img_src': img_src
-        }))
+        text_data=json.dumps({
+            'message': event['message'],
+            'img_src': event['img_src'],
+        })
+        await self.send(text_data)

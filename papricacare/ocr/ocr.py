@@ -84,15 +84,21 @@ def process(attr):
                     for c in p:
                         print(f'- A possible drug code: "{c}"')
                         r = drug.models.Registration.objects.get(pk=c.reg_code)
+
+                        drug_info = {"reg_code": p_code, "drug_name": r.drug_name}
+                        if drug_info not in candidates:
+                            candidates.append(drug_info);
+
+                        ''' 
                         if c.ing_code: # becasue fk is handled to keep going by nulll 
                             i = drug.models.Ingredient.objects.get(pk=c.ing_code)
                             if i.ing_form_id:
                                 f = drug.models.IngreForm.objects.get(pk=i.ing_form_id)
                                 if f.desc_id:
                                     d = drug.models.IngreDesc.objects.get(pk=f.desc_id)
-                                    drug_info = {'drug_name':r.drug_name, 
-                                                 'form_name':f.ing_name_kr,
-                                                 'one_liner_kr':d.one_liner_kr}
+                                    drug_info = {"drug_name":r.drug_name, 
+                                                 "form_name":f.ing_name_kr,
+                                                 "one_liner_kr":d.one_liner_kr}
                                 else:
                                     drug_info = {'drug_name':r.drug_name,
                                                  'form_name':f.ing_name_kr}
@@ -105,6 +111,7 @@ def process(attr):
                             drug_info = {'drug_name':r.drug_name}
                             if drug_info not in candidates: 
                                 candidates.append(drug_info)                            
+                        ''' 
             except ObjectDoesNotExist as details:
                     print(details.args[0])    
                 

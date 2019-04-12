@@ -111,7 +111,7 @@ def read_tsv(tsv_file, table_name, postgre_conn):
        
     print(f'\n# completed with rows: {row_cnt} and errors: {err_cnt} for table {table_name}!')
 
-conn = psycopg2.connect(database="papricacaredb", user = "onions", 
+conn = psycopg2.connect(database="papricacare", user = "onions", 
         password = "onions2018", host = db_endpoint, port = "5432")
 
 if conn:

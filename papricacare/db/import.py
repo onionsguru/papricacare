@@ -3,8 +3,12 @@ import psycopg2
 import ast
 import os
 
-db_endpoint = '127.0.0.1'
-#db_endpoint = 'hira.ce6uph5ztrl3.ap-northeast-2.rds.amazonaws.com'
+try:
+    db_endpoint = os.environ['papricacare_db_host']
+    print(f'import is running at "{db_endpoint}".')
+except KeyError:
+    print('import is running locally.')
+    db_endpoint = '127.0.0.1'
 
 def filter_str(str, f_list ):
     temp_str = ''
@@ -89,7 +93,7 @@ def read_csv(csv_file, table_name, postgre_conn):
     print(f'\n# completed with rows: {row_cnt} and errors: {err_cnt} for table {table_name}, with file:{csv_file}!')
 
 
-conn = psycopg2.connect(database="papricacaredb", user = "onions", 
+conn = psycopg2.connect(database="papricacare", user = "onions", 
         password = "onions2018", host = db_endpoint, port = "5432")
 
 if conn:

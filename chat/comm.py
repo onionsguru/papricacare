@@ -84,7 +84,7 @@ class ChatChannel(AsyncWebsocketConsumer):
                  attr['is_drug'] or attr['is_disease'] or attr['is_hosp']):
                 (candidates, attr['img_src']) = ocr.process(attr)
                 if attr['is_drug']:
-                    message = message + f'<div style="color:red;">{len(candidates)} extracted: ' + str(candidates) +'</div>'
+                    message = str(candidates)
         except KeyError:
             message = 'a wrong request'
             attr = dict()
