@@ -26,9 +26,10 @@ $(document).ready(function() {
 	chatSocket.onmessage = function(e) {
 		$('#ajaxBusy').hide(); 
 		
-	    var data = JSON.parse(e.data);
-	    $('#ocr_text').html(data['message']);
-		$('#ocr_img_output').attr('src', data['img_src'] );
+	    	var data = JSON.parse(e.data);
+		console.log(data);
+	    	$('#ocr_text').html( JSON.stringify(data.message) );
+		$('#ocr_img_output').attr('src', data.img_src );
 	};
 	
 	chatSocket.onclose = function(e) {

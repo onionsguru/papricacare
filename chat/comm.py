@@ -84,7 +84,7 @@ class ChatChannel(AsyncWebsocketConsumer):
                  attr['is_drug'] or attr['is_disease'] or attr['is_hosp']):
                 (candidates, attr['img_src']) = ocr.process(attr)
                 if attr['is_drug']:
-                    message = str(candidates)
+                    message = message + '<br>' + str(candidates)
         except KeyError:
             message = 'a wrong request'
             attr = dict()
@@ -121,14 +121,7 @@ class ChatChannel(AsyncWebsocketConsumer):
       
     # Receive message from room group
     async def chat_message(self, event):
-        message = event['message']
-        img_src = event['img_src']
-        chatter_list = self.get_chatters(self.room_id)
+        event['chatter_list'] = self.get_chatters(self.room_id)
 
         # Send message to WebSocket
-        await self.send(text_data=json.dumps({
-            'message': message,
-            'chatters': chatter_list,
-            'img_src': img_src
-        }))
-        
+        await self.send(json.dumps(event))

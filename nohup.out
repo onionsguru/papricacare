@@ -1,0 +1,65 @@
+HTTP GET / 200 [0.08, 27.117.182.6:57807]
+HTTP GET /ocr/get/ 200 [0.00, 27.117.182.6:57807]
+HTTP GET /ocr/get/ 200 [0.00, 27.117.182.6:57807]
+WebSocket HANDSHAKING /ws/ocr/ [27.117.182.6:27924]
+WebSocket CONNECT /ws/ocr/ [27.117.182.6:27924]
+WebSocket DISCONNECT /ws/ocr/ [27.117.182.6:27924]
+HTTP GET /chat/ 200 [0.03, 27.117.182.6:57807]
+HTTP GET /admin/ 200 [0.07, 27.117.182.6:57807]
+HTTP GET /static/admin/css/dashboard.css 304 [0.00, 27.117.182.6:57807]
+HTTP GET /static/admin/css/base.css 304 [0.00, 27.117.182.6:57812]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 27.117.182.6:57807]
+HTTP GET /static/admin/css/fonts.css 304 [0.00, 27.117.182.6:57812]
+HTTP GET /static/admin/img/icon-addlink.svg 304 [0.00, 27.117.182.6:57812]
+HTTP GET /static/admin/img/icon-changelink.svg 304 [0.00, 27.117.182.6:57807]
+HTTP GET /static/admin/img/icon-deletelink.svg 304 [0.00, 27.117.182.6:57842]
+HTTP GET /api/regi/ 200 [0.09, 27.117.182.6:49773]
+WebSocket HANDSHAKING /ws/ocr/ [27.117.182.6:53042]
+WebSocket CONNECT /ws/ocr/ [27.117.182.6:53042]
+WebSocket HANDSHAKING /ws/ocr/ [27.117.182.6:53043]
+WebSocket CONNECT /ws/ocr/ [27.117.182.6:53043]
+HTTP GET /api/regi/ 200 [0.06, 27.117.182.6:49795]
+WebSocket DISCONNECT /ws/ocr/ [27.117.182.6:53043]
+WebSocket DISCONNECT /ws/ocr/ [27.117.182.6:53042]
+Invalid HTTP_HOST header: '52.79.109.85:8000'. You may need to add '52.79.109.85' to ALLOWED_HOSTS.
+Bad Request: /admin/assets/js/views/login.js
+HTTP GET /admin/assets/js/views/login.js 400 [0.03, 185.53.91.24:48736]
+WebSocket HANDSHAKING /ws/ocr/ [27.117.182.6:53054]
+WebSocket CONNECT /ws/ocr/ [27.117.182.6:53054]
+WebSocket DISCONNECT /ws/ocr/ [27.117.182.6:53054]
+HTTP GET / 200 [0.06, 27.117.182.6:49481]
+Not Found: /favicon.ico
+HTTP GET /favicon.ico 404 [0.00, 27.117.182.6:49481]
+<Papricacare allowed at "papricacare.onionsapp.com",Postgre run at "papricacaredb.ce6uph5ztrl3.ap-northeast-2.rds.amazonaws.com">
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 12, 2019 - 10:42:30
+Django version 2.1.7, using settings 'papricacare.settings'
+Starting ASGI/Channels version 2.1.7 development server at http://0:8000/
+Quit the server with CONTROL-C.
+ocr websocket connected:1
+ocr websocket connected:2
+ocr websocket connected:3
+ocr websocket connected:4
+WebSocket HANDSHAKING /ws/ocr/ [27.117.182.6:54570]
+WebSocket CONNECT /ws/ocr/ [27.117.182.6:54570]
+HTTP GET / 200 [0.05, 27.117.182.6:58103]
+HTTP GET /ocr/get/ 200 [0.00, 27.117.182.6:58103]
+HTTP GET /ocr/get/ 200 [0.00, 27.117.182.6:58103]
+WebSocket HANDSHAKING /ws/ocr/ [27.117.182.6:58117]
+WebSocket CONNECT /ws/ocr/ [27.117.182.6:58117]
+HTTP GET /ocr/get/ 200 [0.00, 27.117.182.6:58103]
+HTTP GET /ocr/get/ 200 [0.00, 27.117.182.6:58103]
+WebSocket DISCONNECT /ws/ocr/ [27.117.182.6:58117]
+HTTP GET /chat/ 200 [0.06, 27.117.182.6:58103]
+HTTP GET /chat/open/ 200 [0.03, 27.117.182.6:58268]
+HTTP POST /chat/open/ 302 [0.04, 27.117.182.6:58268]
+HTTP GET /chat/8/18/enter/ 302 [0.03, 27.117.182.6:58268]
+HTTP GET /chat/8/18/talk/ 200 [0.03, 27.117.182.6:58268]
+HTTP GET /chat/8/18/talk/ 200 [0.03, 27.117.182.6:58268]
+WebSocket DISCONNECT /ws/ocr/ [27.117.182.6:54570]
+WebSocket HANDSHAKING /ws/chat/8/18/ [27.117.182.6:58294]
+WebSocket CONNECT /ws/chat/8/18/ [27.117.182.6:58294]
+HTTP GET /chat/join/ 200 [0.03, 27.117.182.6:58293]
+WebSocket DISCONNECT /ws/chat/8/18/ [27.117.182.6:58294]

@@ -29,28 +29,28 @@ class OcrChannel(AsyncWebsocketConsumer):
     # Receive message from WebSocket
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)
-        message = None
+        drugs, disease_name, hospital_name, issue_date = [], '질환명 입력 요함', '병원명 입력 요함', '2018/04/03'
+
         try:
             attr = text_data_json['attr']
             if attr['img_src'] != '#' and \
                  (attr['is_privacy'] or attr['is_num'] or attr['is_char'] or\
                  attr['is_drug'] or attr['is_disease'] or attr['is_hosp']):
-                (candidates, attr['img_src']) = ocr.process(attr)
-                if attr['is_drug']:
-                    message = str(candidates)
+                (drug_candidates, attr['img_src']) = ocr.process(attr)
+                drugs = drug_candidates
         except KeyError as detail:
-            message = 'a wrong request' + detail.args[0] 
+            drugs = ['wrong request',]
             attr = dict()
             attr['img_src'] = '#'  
             text_data_json['attr']['img_src'] = '#'
-            print(f'# error of {message}: "{text_data_json}"')
                          
         # Send message to room group
         await self.channel_layer.group_send(
             self.room_group_id,
             {
                 'type': 'ocr_message',
-                'message': message,
+                'message': { 'drugs': drugs, 'disease': disease_name, 'hospital':hospital_name, 
+                    'issue': issue_date },
                 'img_src': attr['img_src']
             }
         )
@@ -58,8 +58,16 @@ class OcrChannel(AsyncWebsocketConsumer):
     # Receive message from room group
     async def ocr_message(self, event):
         # Send message to WebSocket
-        text_data=json.dumps({
-            'message': event['message'],
-            'img_src': event['img_src'],
-        })
-        await self.send(text_data)
+
+        '''
+        # Test data
+        event['message'] = {
+                'disease' : '통풍',
+                'hospital' : '삼성병원',
+                'issue' : '2018.04.03',
+                'drugs':[{'reg_code': '644304080', 'drug_name': '콜킨정(콜키신)', 'dose':'1', 'qty_perday':'3'}, 
+                    {'reg_code': '644704010', 'drug_name': '페브릭정40밀리그램(페북소스타트)', 'dose':'2', 'qty_perday':'2'}]}
+        '''
+
+        print(event['message'])
+        await self.send(json.dumps(event))
