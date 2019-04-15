@@ -14,11 +14,12 @@ class APIView(generic.TemplateView):
         result = '<h1>A wrong API request!</h1>'
         if request.method == 'GET':
             try:
-                product_code = kwargs['product_code']
-                prod = models.Product.objects.all().get(pk=product_code)
-                reg = models.Registration.objects.get(pk=prod.reg_code_id)
-                data = serializers.serialize('json', list([reg]) )
-                return HttpResponse(data, content_type='application/json; charset=utf-8')
+                table_name = kwargs['table']
+                col_name = kwargs['col']
+                table = getattr(models, table_name)
+                data = list(table.objects.values_list(col_name, flat=True))
+                print(data)
+                return HttpResponse(json.dumps(data), content_type='application/json; charset=utf-8')
             except KeyError:
                 pass
             except ObjectDoesNotExist:

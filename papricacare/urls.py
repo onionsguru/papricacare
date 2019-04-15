@@ -28,7 +28,6 @@ router.register(r'regi', viewsets.RegiViewSet)
 router.register(r'ingre', viewsets.IngreViewSet)
 router.register(r'form', viewsets.FormViewSet)
 router.register(r'desc', viewsets.DescViewSet)
-# /drug/<str:name>/name
 
 urlpatterns = [
     path('admin/', admin.site.urls),

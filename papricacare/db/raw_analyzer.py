@@ -116,7 +116,7 @@ conn = psycopg2.connect(database="papricacare", user = "onions",
 
 if conn:
     cur = conn.cursor()
-  
+    
     cur.execute('delete from drug_ingredesc')
     cur.execute('delete from drug_registration')
     cur.execute('delete from drug_ingreform')
@@ -124,7 +124,7 @@ if conn:
     cur.execute('delete from drug_product')
     conn.commit()
     print('# all rows deleted!')
-
+    
     read_tsv('DESC_ID.tsv', 'drug_ingredesc', conn)
     read_tsv('REG_CODE.tsv', 'drug_registration', conn)
     read_tsv('ING_FORM_ID.tsv', 'drug_ingreform', conn)
