@@ -91,7 +91,7 @@ def process(attr):
                         drug_info = {"reg_code": c.prod_code, "drug_name": r.drug_name, "dose":"-", "qty_perday":"-"}
                         if drug_info not in candidates:
                             candidates.append(drug_info);
-                elif is_hosp and cnt_special == 2 and cnt_char == 0 and cnt_num >= 8: # phone number
+                elif is_hosp and cnt_special >= 2 and cnt_char == 0 and cnt_num >= 7: # phone number
                     p = hospital.models.Hospital.objects.get(phone=p_code)
                     hospital_info = {"name": p.name}
 

@@ -63,7 +63,7 @@ class OcrChannel(AsyncWebsocketConsumer):
         event['message'] = {
                 'disease' : '통풍',
                 'hospital' : '삼성병원',
-                'issue' : '2018.04.03',
+                'issue' : '2018-04-03',
                 'drugs':[{'reg_code': '644304080', 'drug_name': '콜킨정(콜키신)', 'dose':'1', 'qty_perday':'3'}, 
                     {'reg_code': '644704010', 'drug_name': '페브릭정40밀리그램(페북소스타트)', 'dose':'2', 'qty_perday':'2'}]}
         '''
