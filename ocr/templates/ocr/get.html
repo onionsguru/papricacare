@@ -54,7 +54,7 @@ $(document).ready(function() {
 		$('#ajaxBusy').show();
 		var attr = { 'is_privacy': true, 'is_num': false, 'is_char':false, 
 				'img_src': $('#ocr_img').attr('src'), 
-				'is_drug':true, 'is_disease':false, 'is_hosp':false  };
+				'is_drug':true, 'is_disease':true, 'is_hosp':true  };
 		
 		chatSocket.send(JSON.stringify({
 	        'message': message,

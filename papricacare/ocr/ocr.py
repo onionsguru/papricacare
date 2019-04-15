@@ -71,15 +71,18 @@ def process(attr):
         
     texts = detect_text(src)
     candidates = []
+    hospital_info = '-'
+    disease_info = '-'
+    issue_date_info = '2018-04-03'
     
-    if is_drug:
-        import drug
+    if is_drug or is_hosp or is_disease:
+        import drug, hospital
         for i in range(1, len(texts)):
             p_code = texts[i].description
             print(f'{p_code}:{len(p_code)}')
             try:
                 cnt_num, cnt_char, cnt_special = count_chars(p_code)
-                if cnt_num >= 9:
+                if is_drug and cnt_char == 0 and cnt_special == 0 and cnt_num >= 9: # drug code
                     p = drug.models.Product.objects.filter(prod_code__contains=p_code)
                     for c in p:
                         r = drug.models.Registration.objects.get(pk=c.reg_code)
@@ -88,12 +91,15 @@ def process(attr):
                         drug_info = {"reg_code": c.prod_code, "drug_name": r.drug_name, "dose":"-", "qty_perday":"-"}
                         if drug_info not in candidates:
                             candidates.append(drug_info);
+                elif is_hosp and cnt_special == 2 and cnt_char == 0 and cnt_num >= 8: # phone number
+                    p = hospital.models.Hospital.objects.get(phone=p_code)
+                    hospital_info = {"name": p.name}
 
             except ObjectDoesNotExist as details:
                     print(details.args[0])    
                 
     if len(texts) == 0 or (is_privacy == False and is_num == False and is_char == False):
-        return (candidates, '#')
+        return (disease_info, hospital_info, issue_date_info, candidates, '#')
     
     privacies=[]
 
@@ -140,5 +146,5 @@ def process(attr):
     data_url = header + b64encode(content)
     output = data_url.decode('utf-8')
 
-    return (candidates, output)
+    return (disease_info, hospital_info, issue_date_info, candidates, output)
                         

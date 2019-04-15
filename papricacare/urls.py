@@ -32,6 +32,7 @@ router.register(r'desc', viewsets.DescViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('drug/', include('drug.urls')),
+    path('hospital/', include('hospital.urls')),
     path('ocr/', include('ocr.urls')),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),

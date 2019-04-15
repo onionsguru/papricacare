@@ -29,15 +29,14 @@ class OcrChannel(AsyncWebsocketConsumer):
     # Receive message from WebSocket
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)
-        drugs, disease_name, hospital_name, issue_date = [], '질환명 입력 요함', '병원명 입력 요함', '2018/04/03'
+        drugs, disease_name, hospital_name, issue_date = [], '', '', ''
 
         try:
             attr = text_data_json['attr']
             if attr['img_src'] != '#' and \
                  (attr['is_privacy'] or attr['is_num'] or attr['is_char'] or\
                  attr['is_drug'] or attr['is_disease'] or attr['is_hosp']):
-                (drug_candidates, attr['img_src']) = ocr.process(attr)
-                drugs = drug_candidates
+                (disease_name, hospital_name, issue_date, drugs, attr['img_src']) = ocr.process(attr)
         except KeyError as detail:
             drugs = ['wrong request',]
             attr = dict()

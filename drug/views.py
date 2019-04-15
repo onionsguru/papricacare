@@ -18,7 +18,7 @@ class APIView(generic.TemplateView):
                 col_name = kwargs['col']
                 table = getattr(models, table_name)
                 data = list(table.objects.values_list(col_name, flat=True))
-                print(data)
+                # print(data)
                 return HttpResponse(json.dumps(data), content_type='application/json; charset=utf-8')
             except KeyError:
                 pass
