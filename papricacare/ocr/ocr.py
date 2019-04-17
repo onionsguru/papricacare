@@ -111,7 +111,7 @@ def process(attr):
                         r = drug.models.Registration.objects.get(pk=c.reg_code)
                         print(f'- A possible drug: "({p_code} -> {c.prod_code})"')
 
-                        drug_info = {"reg_code": c.prod_code, "drug_name": r.drug_name, "dose":"-", "qty_perday":"-"}
+                        drug_info = {"prod_code": c.prod_code, "drug_name": r.drug_name, "dose":"-", "qty_perday":"-"}
                         if drug_info not in candidates:
                             candidates.append(drug_info);
                 elif is_hosp and cnt_special >= 2 and cnt_char == 0 and cnt_num >= 7: # phone number

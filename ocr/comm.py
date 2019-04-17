@@ -50,7 +50,8 @@ class OcrChannel(AsyncWebsocketConsumer):
                 'type': 'ocr_message',
                 'message': { 'drugs': drugs, 'diseases': disease_name, 'hospital':hospital_name, 
                     'dates': date },
-                'img_src': attr['img_src']
+                'img_src': attr['img_src'],
+                'is_test': attr['is_test']
             }
         )
          
@@ -58,15 +59,9 @@ class OcrChannel(AsyncWebsocketConsumer):
     async def ocr_message(self, event):
         # Send message to WebSocket
 
-        '''
-        # Test data
-        event['message'] = {
-                'disease' : '통풍',
-                'hospital' : '삼성병원',
-                'issue' : '2018-04-03',
-                'drugs':[{'reg_code': '644304080', 'drug_name': '콜킨정(콜키신)', 'dose':'1', 'qty_perday':'3'}, 
-                    {'reg_code': '644704010', 'drug_name': '페브릭정40밀리그램(페북소스타트)', 'dose':'2', 'qty_perday':'2'}]}
-        '''
+        if event['is_test']:
+            event['message'] = {"drugs":[{"prod_code":"648900560","drug_name":"쎄레브렉스캡슐200밀리그램(세레콕시브)","dose":"-","qty_perday":"-"}],"diseases":[{"code":"M19.99","name":"상세불명의 관절증, 상세불명 부분"},{"code":"K10.2","name":"턱의 염증성 병태"}],"hospital":{"name":"학교법인가톨릭학원가톨릭대학교서울성모병원"},
+            "dates":[{"issue":"2019/04/17"},{"issue":"2019-04-24"},{"issue":"2019-04-17"}]}       
 
         print(event['message'])
         await self.send(json.dumps(event))
