@@ -36,9 +36,7 @@ def count_chars(text):
 def is_serial_num(text):
     cnt_num, cnt_char, cnt_special = count_chars(text)
     #print(text, cnt_num,cnt_char,cnt_special)
-    if cnt_num >= 13 and '-' in text: # 주민번호 패턴
-        return True
-    elif cnt_special == 0 and cnt_char == 0 and cnt_num == 8: # 요양기관기호
+    if cnt_num >= 7 and cnt_num <= 13 and cnt_special == 1 and text[6] == '-': # 주민번호 패턴
         return True
     else:
         return False
@@ -92,7 +90,7 @@ def process(attr):
     candidates = []
     hospital_info = '-'
     disease_info = []
-    issue_date_info = '2018-04-03'
+    date_info = []
     
     if is_drug or is_hosp or is_disease:
         import drug, hospital, disease
@@ -102,7 +100,12 @@ def process(attr):
             print(f'{p_code}:{p_code_len}')
             try:
                 cnt_num, cnt_char, cnt_special = count_chars(p_code)
-                if is_drug and cnt_char == 0 and cnt_special == 0 and cnt_num >= 9: # drug code
+                if cnt_num == 8 and cnt_special == 2:
+                    temp = {'issue':p_code}
+                    if temp not in date_info:
+                        date_info.append(temp)
+                    issue_date_info = p_code
+                elif is_drug and cnt_char == 0 and cnt_special == 0 and cnt_num >= 9: # drug code
                     p = drug.models.Product.objects.filter(prod_code__contains=p_code)
                     for c in p:
                         r = drug.models.Registration.objects.get(pk=c.reg_code)
@@ -127,6 +130,7 @@ def process(attr):
                         temp = {"code": d.code, "name": d.name_kr}
                         if temp not in disease_info:
                             disease_info.append(temp)
+ 
 
             except ObjectDoesNotExist as details:
                     print(details.args[0])
@@ -134,7 +138,7 @@ def process(attr):
         # get_collective_texts(['질병분류기호'], texts[i])
                 
     if len(texts) == 0 or (is_privacy == False and is_num == False and is_char == False):
-        return (disease_info, hospital_info, issue_date_info, candidates, '#')
+        return (disease_info, hospital_info, date_info, candidates, '#')
     
     privacies=[]
 
@@ -181,5 +185,5 @@ def process(attr):
     data_url = header + b64encode(content)
     output = data_url.decode('utf-8')
 
-    return (disease_info, hospital_info, issue_date_info, candidates, output)
+    return (disease_info, hospital_info, date_info, candidates, output)
                         
