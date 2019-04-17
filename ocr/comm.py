@@ -48,7 +48,7 @@ class OcrChannel(AsyncWebsocketConsumer):
             self.room_group_id,
             {
                 'type': 'ocr_message',
-                'message': { 'drugs': drugs, 'disease': disease_name, 'hospital':hospital_name, 
+                'message': { 'drugs': drugs, 'diseases': disease_name, 'hospital':hospital_name, 
                     'issue': issue_date },
                 'img_src': attr['img_src']
             }

@@ -5,6 +5,25 @@ from base64 import b64decode, b64encode
 from django.urls import reverse
 from django.core.exceptions import ObjectDoesNotExist
 
+'''
+ vertex = texts[i].bounding_poly.vertices[0]
+            coord.append((vertex.x,vertex.y))
+'''
+
+def get_collective_texts(title_list, text):
+    candidates = dict()
+    
+    for tl in title_list:
+        if t in tl:
+            if text not in candidates.keys():
+                candidates[tl] = text
+            else:
+                print('overwritten with keys!')
+                    
+    for c in candidates:
+        print(c.description)
+                
+
 def count_chars(text):
     cnt_num, cnt_char, cnt_special = 0, 0, 0
     str_c = ['/', '#', '-', '*'] # this set should be tuned up againt new cases    
@@ -72,14 +91,15 @@ def process(attr):
     texts = detect_text(src)
     candidates = []
     hospital_info = '-'
-    disease_info = '-'
+    disease_info = []
     issue_date_info = '2018-04-03'
     
     if is_drug or is_hosp or is_disease:
-        import drug, hospital
+        import drug, hospital, disease
         for i in range(1, len(texts)):
             p_code = texts[i].description
-            print(f'{p_code}:{len(p_code)}')
+            p_code_len = len(p_code)
+            print(f'{p_code}:{p_code_len}')
             try:
                 cnt_num, cnt_char, cnt_special = count_chars(p_code)
                 if is_drug and cnt_char == 0 and cnt_special == 0 and cnt_num >= 9: # drug code
@@ -94,9 +114,24 @@ def process(attr):
                 elif is_hosp and cnt_special >= 2 and cnt_char == 0 and cnt_num >= 7: # phone number
                     p = hospital.models.Hospital.objects.get(phone=p_code)
                     hospital_info = {"name": p.name}
+                elif is_disease and cnt_num >=3 and cnt_num <=4:
+                    if p_code[0].isalpha() or p_code[0] == '1' :
+                        if '.' not in p_code:
+                            pp_code = p_code[0:3] + '.' + p_code[3:]
+                        else:
+                            pp_code = p_code
+                            
+                        if pp_code[0] == '1': # for ocr typo
+                            pp_code = 'I' + pp_code[1:]
+                        d = disease.models.Disease.objects.get(code=pp_code)         
+                        temp = {"code": d.code, "name": d.name_kr}
+                        if temp not in disease_info:
+                            disease_info.append(temp)
 
             except ObjectDoesNotExist as details:
-                    print(details.args[0])    
+                    print(details.args[0])
+        
+        # get_collective_texts(['질병분류기호'], texts[i])
                 
     if len(texts) == 0 or (is_privacy == False and is_num == False and is_char == False):
         return (disease_info, hospital_info, issue_date_info, candidates, '#')
