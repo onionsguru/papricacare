@@ -1,9 +1,9 @@
 from django.urls import path
 from django.views import generic
-from drug import views, viewsets
+from disease import views
 from django.urls import path, include
 
-app_name = 'drug'
+app_name = 'disease'
 
 urlpatterns = [    
     # path('', generic.TemplateView.as_view(template_name='drug/index.html'), name='index'),

@@ -1,7 +1,6 @@
 from django.urls import path
 from django.views import generic
 from hospital import views
-from rest_framework import routers
 from django.urls import path, include
 
 app_name = 'hospital'
