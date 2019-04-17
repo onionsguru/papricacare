@@ -99,7 +99,8 @@ conn = psycopg2.connect(database="papricacare", user = "onions",
 if conn:
     cur = conn.cursor()
 
-    read_csv('h1.tsv', 'hospital_hospital', conn)
+    #read_csv('h1.tsv', 'hospital_hospital', conn)
+    read_csv('d.tsv', 'disease_disease', conn)
     if conn.close():
         print('# all completed!')
 else:
