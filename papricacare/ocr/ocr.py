@@ -91,6 +91,7 @@ def process(attr):
     hospital_info = '-'
     disease_info = []
     date_info = []
+    serial_info = '-'
     
     if is_drug or is_hosp or is_disease:
         import drug, hospital, disease
@@ -100,7 +101,9 @@ def process(attr):
             print(f'{p_code}:{p_code_len}')
             try:
                 cnt_num, cnt_char, cnt_special = count_chars(p_code)
-                if cnt_num == 8 and cnt_special == 2:
+                if (cnt_num == 7 or cnt_num == 13) and cnt_special == 1 and '-' in p_code:
+                    serial_info = p_code[0:6]
+                if cnt_num == 8 and cnt_special == 2:   # dates
                     temp = {'issue':p_code}
                     if temp not in date_info:
                         date_info.append(temp)
@@ -130,7 +133,6 @@ def process(attr):
                         temp = {"code": d.code, "name": d.name_kr}
                         if temp not in disease_info:
                             disease_info.append(temp)
- 
 
             except ObjectDoesNotExist as details:
                     print(details.args[0])
@@ -138,7 +140,7 @@ def process(attr):
         # get_collective_texts(['질병분류기호'], texts[i])
                 
     if len(texts) == 0 or (is_privacy == False and is_num == False and is_char == False):
-        return (disease_info, hospital_info, date_info, candidates, '#')
+        return (serial_info, disease_info, hospital_info, date_info, candidates, '#')
     
     privacies=[]
 
@@ -185,5 +187,5 @@ def process(attr):
     data_url = header + b64encode(content)
     output = data_url.decode('utf-8')
 
-    return (disease_info, hospital_info, date_info, candidates, output)
+    return (serial_info, disease_info, hospital_info, date_info, candidates, output)
                         

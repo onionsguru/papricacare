@@ -71,7 +71,7 @@ class ChatChannel(AsyncWebsocketConsumer):
     # Receive message from WebSocket
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)
-        drugs, disease_name, hospital_name, issue_date = [], '', '', ''
+        drugs, disease_name, hospital_name, issue_date, serial_info = [], '', '', '', ''
         
         try:
             message = text_data_json['message']
@@ -84,10 +84,10 @@ class ChatChannel(AsyncWebsocketConsumer):
             if attr['img_src'] != '#' and \
                 (attr['is_privacy'] or attr['is_num'] or attr['is_char'] or\
                  attr['is_drug'] or attr['is_disease'] or attr['is_hosp']):
-                (disease_name, hospital_name, date, drugs, attr['img_src']) = ocr.process(attr)
+                (serial_info, disease_name, hospital_name, date, drugs, attr['img_src']) = ocr.process(attr)
                 if attr['is_drug']:
                     message = message + '<br>' + str({ 'drugs': drugs, 'diseases': disease_name, 'hospital':hospital_name, 
-                    'dates': date })
+                    'dates': date, 'serial':serial_info })
         except KeyError:
             message = 'a wrong request'
             attr = dict()

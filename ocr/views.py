@@ -9,6 +9,15 @@ class GetView(generic.TemplateView):
   template_name = 'ocr/get.html'
   def get(self, request, *args, **kwargs ):
       return render(request, self.template_name, {})
+  def post(self, request, *args, **kwargs ):
+      return render(request, self.template_name, {})
+  
+class GetRestView(generic.TemplateView):
+  template_name = 'ocr/get_rest.html'
+  
+  def get(self, request, *args, **kwargs ):
+      return render(request, self.template_name, {})
         
   def post(self, request, *args, **kwargs ):
+      print('get/rest...')
       return render(request, self.template_name, {})

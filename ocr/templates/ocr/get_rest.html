@@ -1,13 +1,13 @@
 {% extends "ocr/base.html" %}
 
 {% block body %}
-<img id='ocr_img' src='#' name='image' style='width:150px;height:auto;'/><br>
 
-<form id='myform'>
+<form id='myform' action="{% url 'ocr:get_rest' %}" method='post'>
 {% csrf_token %}
+<img id='ocr_img' src='#' name='image' style='width:150px;height:auto;'/><br>
 <input type='file' id='file_loader' required/>
 <hr>
-<button id='mysend' type='button'>OCR 분석</button>
+<input type='submit' value='OCR 분석'/>
 </form>
 
 <br>
@@ -16,23 +16,6 @@
 
 <script>
 $(document).ready(function() {
-	var chatSocket = new WebSocket(
-	        'ws://' + window.location.host +
-	        '/ws/ocr/');
-
-	chatSocket.onmessage = function(e) {
-		$('#ajaxBusy').hide(); 
-		
-	    	var data = JSON.parse(e.data);
-		console.log(data);
-	    	$('#ocr_text').html( JSON.stringify(data.message) );
-		$('#ocr_img_output').attr('src', data.img_src );
-	};
-	
-	chatSocket.onclose = function(e) {
-	    alert('You have left the ocr app for some reason!');
-	};
-		
 	function imageIsLoaded(e) {
         $('#ocr_img').attr('src', e.target.result);
         $('#ocr_img_output').attr('src', '#');
@@ -53,10 +36,6 @@ $(document).ready(function() {
 				'img_src': $('#ocr_img').attr('src'), 
 				'is_drug':true, 'is_disease':true, 'is_hosp':true, 'is_test':false  };
 		
-		chatSocket.send(JSON.stringify({
-	        'message': message,
-	        'attr': attr
-	    }));
 		
 	    if( $('#ocr_img').attr('src') != '#' ) {
 		    $('#ocr_img').attr('src', '#');
@@ -64,14 +43,7 @@ $(document).ready(function() {
 		    $("#file_loader").val('');
 		}
 	} 
-	$('#myform').submit( function () {return false;} );
-	$('#mysend').click( function(e) {
-		if( $('#ocr_img').attr('src') != '#' ) {
-			ocr_send('');
-		}
-		e.preventDefault();
-	});
-    
+	
     // for waiting animation
     $('body').append('<div id="ajaxBusy" class="centered-div"><p><img src="/static/chat/ajax-loader.gif"></p></div>');
     $('#ajaxBusy').hide(); 
