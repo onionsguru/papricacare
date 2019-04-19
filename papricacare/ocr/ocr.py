@@ -9,6 +9,43 @@ from django.core.exceptions import ObjectDoesNotExist
  vertex = texts[i].bounding_poly.vertices[0]
             coord.append((vertex.x,vertex.y))
 '''
+ocr_pic = None
+TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT, BOTTOM_LEFT = 0, 1, 2, 3 
+
+def is_pos(poly):
+    global ocr_pic
+    
+    width = ocr_pic.bounding_poly.vertices[2].x + 2*ocr_pic.bounding_poly.vertices[0].x
+    height = ocr_pic.bounding_poly.vertices[2].y + 2*ocr_pic.bounding_poly.vertices[1].y 
+    
+    if poly.vertices[0].x < width / 2:
+        is_left = True
+    else: 
+        is_left = False
+        
+    if poly.vertices[1].y < height / 2:
+        is_top = True
+    else: 
+        is_top = False
+    
+    if is_top and is_left:
+        return TOP_LEFT
+    elif is_top and not is_left:
+        return TOP_RIGHT
+    elif not is_top and is_left:
+        return BOTTOM_LEFT
+    elif not is_top and not is_left:
+        return BOTTOM_RIGHT
+    else:
+        return None
+    
+def is_serial_num(text):
+    cnt_num, cnt_char, cnt_special = count_chars(text)
+    #print(text, cnt_num,cnt_char,cnt_special)
+    if cnt_num >= 7 and cnt_num <= 13 and cnt_special == 1 and text[6] == '-':  # 주민번호 패턴
+        return True
+    else:
+        return False
 
 def get_collective_texts(title_list, text):
     candidates = dict()
@@ -32,14 +69,6 @@ def count_chars(text):
         elif c.isnumeric(): cnt_num += 1
         elif c in str_c: cnt_special += 1
     return (cnt_num, cnt_char, cnt_special)
-
-def is_serial_num(text):
-    cnt_num, cnt_char, cnt_special = count_chars(text)
-    #print(text, cnt_num,cnt_char,cnt_special)
-    if cnt_num >= 7 and cnt_num <= 13 and cnt_special == 1 and text[6] == '-': # 주민번호 패턴
-        return True
-    else:
-        return False
     
 def is_anynum(text):
     cnt_num, cnt_char, cnt_special = count_chars(text)
@@ -68,7 +97,8 @@ def detect_text(path):
     texts = response.text_annotations
     return texts
 
-def process(attr):    
+def process(attr):
+    global ocr_pic    
     data_url = attr.get('img_src', None)
     is_privacy = attr.get('is_privacy', False)
     is_num = attr.get('is_num', False)
@@ -78,7 +108,12 @@ def process(attr):
     is_disease = attr.get('is_disease', False)
     is_hosp = attr.get('is_hosp', False)
    
-    header, encoded = data_url.split(",", 1)
+    if ',' in data_url:
+        header, encoded = data_url.split(",", 1)
+    else:
+        header = ''
+        encoded = data_url
+        
     data = b64decode(encoded)
     
     src = '.temp.temp'
@@ -87,40 +122,45 @@ def process(attr):
     fp.close()
         
     texts = detect_text(src)
+    ocr_pic = texts[0]
+
     candidates = []
-    hospital_info = '-'
+    hospital_info = ''
     disease_info = []
     date_info = []
-    serial_info = '-'
+    serial_info = ''
     
     if is_drug or is_hosp or is_disease:
         import drug, hospital, disease
         for i in range(1, len(texts)):
             p_code = texts[i].description
             p_code_len = len(p_code)
-            print(f'{p_code}:{p_code_len}')
+            area = is_pos(texts[i].bounding_poly)
+            print(f'{p_code}- len:{p_code_len}, area:{area}')
             try:
                 cnt_num, cnt_char, cnt_special = count_chars(p_code)
-                if (cnt_num == 7 or cnt_num == 13) and cnt_special == 1 and '-' in p_code:
+                
+                if area == TOP_LEFT and is_serial_num(texts[i].description):
                     serial_info = p_code[0:6]
-                if cnt_num == 8 and cnt_special == 2:   # dates
+                elif area == TOP_LEFT and cnt_num == 8 and cnt_special == 2:   # dates
                     temp = {'issue':p_code}
                     if temp not in date_info:
                         date_info.append(temp)
                     issue_date_info = p_code
-                elif is_drug and cnt_char == 0 and cnt_special == 0 and cnt_num >= 9: # drug code
+                elif is_drug and cnt_char == 0 and cnt_special == 0 and cnt_num >= 9 \
+                and (area == TOP_LEFT or area == BOTTOM_LEFT): # drug code
                     p = drug.models.Product.objects.filter(prod_code__contains=p_code)
                     for c in p:
                         r = drug.models.Registration.objects.get(pk=c.reg_code)
                         print(f'- A possible drug: "({p_code} -> {c.prod_code})"')
 
-                        drug_info = {"prod_code": c.prod_code, "drug_name": r.drug_name, "dose":"-", "qty_perday":"-"}
+                        drug_info = {"prod_code": c.prod_code, "drug_name": r.drug_name, "dose":"", "qty_perday":""}
                         if drug_info not in candidates:
                             candidates.append(drug_info);
-                elif is_hosp and cnt_special >= 2 and cnt_char == 0 and cnt_num >= 7: # phone number
+                elif is_hosp and cnt_special >= 2 and cnt_char == 0 and cnt_num >= 7 and area == TOP_RIGHT: # phone number
                     p = hospital.models.Hospital.objects.get(phone=p_code)
                     hospital_info = {"name": p.name}
-                elif is_disease and cnt_num >=3 and cnt_num <=4:
+                elif is_disease and cnt_num >=3 and cnt_num <=4 and area == TOP_LEFT:
                     if p_code[0].isalpha() or p_code[0] == '1' :
                         if '.' not in p_code:
                             pp_code = p_code[0:3] + '.' + p_code[3:]
@@ -157,6 +197,7 @@ def process(attr):
             privacies.append(coord)
         
     im = Image.open(src)
+    
     if os.path.exists(src):
         os.remove(src)
     try:
