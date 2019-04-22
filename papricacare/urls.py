@@ -37,6 +37,7 @@ urlpatterns = [
     path('ocr/', include('ocr.urls')),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
     path('', views.HomeView.as_view(), name='home'),
     path('chat/', include('chat.urls')),
     path('api-auth/', include('rest_framework.urls')),

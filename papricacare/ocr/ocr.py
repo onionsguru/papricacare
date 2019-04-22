@@ -160,9 +160,10 @@ def process(attr):
                 elif is_hosp and cnt_special >= 2 and cnt_char == 0 and cnt_num >= 7 and area == TOP_RIGHT: # phone number
                     p = hospital.models.Hospital.objects.get(phone=p_code)
                     hospital_info = {"name": p.name}
-                elif is_disease and cnt_num >=3 and cnt_num <=4 and area == TOP_LEFT:
+                elif is_disease and cnt_num >=2 and cnt_num <=4 and area == TOP_LEFT:
                     if p_code[0].isalpha() or p_code[0] == '1' :
-                        if '.' not in p_code:
+                        print('disease: ' + p_code)
+                        if len(p_code) > 3 and  '.' not in p_code:
                             pp_code = p_code[0:3] + '.' + p_code[3:]
                         else:
                             pp_code = p_code
