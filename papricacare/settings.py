@@ -47,8 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.sites',
     'django.contrib.staticfiles',
+    
     'drug.apps.DrugConfig',
     'chat.apps.ChatConfig',
+    'ocr.apps.OcrConfig',
 
     'allauth',
     'allauth.account',
@@ -60,7 +62,7 @@ INSTALLED_APPS = [
     'channels',
     'accounts.apps.AccountsConfig',
     'rest_framework',
-    'ocr.apps.OcrConfig',
+   
     'hospital',
     'disease',
 ]
@@ -190,5 +192,7 @@ AUTHENTICATION_BACKENDS = [
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 LOGIN_REDIRECT_URL='/'
+
+SITE_ID=1
 
 print(run_message)

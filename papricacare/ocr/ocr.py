@@ -42,10 +42,11 @@ def is_pos(poly):
 def is_serial_num(text):
     cnt_num, cnt_char, cnt_special = count_chars(text)
     #print(text, cnt_num,cnt_char,cnt_special)
-    if cnt_num >= 7 and cnt_num <= 13 and cnt_special == 1 and text[6] == '-':  # 주민번호 패턴
-        return True
-    else:
-        return False
+    if cnt_num >= 7 and cnt_num <= 13 and cnt_special == 1:      
+        if text[6] == '-' or text[7] == '-':  # 주민번호 패턴 + 폰트 가비지가 있는 경
+            return True
+    
+    return False
 
 def get_collective_texts(title_list, text):
     candidates = dict()
@@ -140,7 +141,9 @@ def process(attr):
             try:
                 cnt_num, cnt_char, cnt_special = count_chars(p_code)
                 
-                if area == TOP_LEFT and is_serial_num(texts[i].description):
+                if area == TOP_LEFT and is_serial_num(p_code):
+                    if p_code[7] == '-':
+                        p_code = p_code[1:] # font garbage
                     serial_info = p_code[0:6]
                 elif area == TOP_LEFT and cnt_num == 8 and cnt_special == 2:   # dates
                     temp = {'issue':p_code}

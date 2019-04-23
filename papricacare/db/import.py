@@ -101,8 +101,8 @@ def read_tsv(csv_file, table_name, postgre_conn):
 
 #conn = psycopg2.connect(database="papricacare", user = "onions", password = "onions2018", host = db_endpoint, port = "5432")
 
-conn = psycopg2.connect(database="pcare_db", user = "onns", 
-        password = "ghdtmddyd", host = 'pcaredb.ce6uph5ztrl3.ap-northeast-2.rds.amazonaws.com', port = "5432")
+conn = psycopg2.connect(database="pcare_db", user = "onions", 
+        password = "onions2018", host = 'papricacare-new.ce6uph5ztrl3.ap-northeast-2.rds.amazonaws.com', port = "5432")
 
 if conn:
     cur = conn.cursor()
