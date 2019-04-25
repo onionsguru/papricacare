@@ -1,3 +1,4 @@
 *.pyc
 dump.rdb
 __pycache__
+nohup.out
